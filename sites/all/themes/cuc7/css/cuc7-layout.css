@@ -1,0 +1,11 @@
+/*the following forces borders to be rendered within the actual element box instead of adding pixels to the outside*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*layout overrides*/
+/*.one_half {*/
+    /*margin-right: 2%;*/
+/*}*/

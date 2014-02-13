@@ -1,0 +1,549 @@
+/****************************************************************************************************************
+ ***********************     mhg-created       ******************************************************************
+ ***************************************************************************************************************/
+/*************************************************************************  
+ Modification History
+ Date      Code By  	Description
+ --------  ---- --- 	---------------------------------------------
+ 09/03/09   #1  mhg		Commented .link -- no longer needed.
+ 10-31-09	#2	mhg		Added style for photo gallery photos
+ 						Changed .pageTitle in order to begin displaying page title variable
+ 11-02-09	#3	mhg		Changes needed format page with real title used						
+ 02-22-10   #4  mhg		Added css for images on Partner Church page
+**************************************************************************/
+#user-login-form
+{
+    font-size: 14px;
+}
+
+div#forum-comments
+{
+	margin-left: 2em;
+}
+
+#forum-comments h2
+{
+	border: none;
+	font-family: Georgia,'Times New Roman',serif;
+	font-style:italic;
+	margin-bottom:0.5em;
+	margin-top: 2em;
+}
+
+ .cuc-forum-comment .submitted /* The "posted by" information */
+ {
+ 	font-size: .8em;
+	color: #7A4234;
+	text-align: right;
+ }
+ .cuc-forum-comment .submitted .username,  /* username in the "posted by" information */
+ .cuc-forum-comment .submitted .username a
+ {
+ 	color: #8E8F47;
+ }
+
+
+
+
+/******  #4  ****/
+		.shadowed-image-left
+		{
+			height:190px; 
+			margin-bottom: 20px; 
+			float: left;
+		}
+		.shadowed-image-right
+		{
+			height:190px; 
+			margin-bottom: 20px; 
+			float: right;
+		}
+		.image-content, .shadow
+		{
+		  position: relative;
+		  top: -4px;
+		}
+		.image-content img
+		{
+			border:none; 
+			height:140px;
+		}
+		.shadow 
+		{
+			background-color: #959595;
+			top: 6px;
+			left: 15px;
+		}
+		.image-content 
+		{
+		  background-color: #fff;
+		  border: 1px solid #000;
+		  padding: 0.5em;
+		  left: -4px;
+		}
+	/***  end **/
+
+div.view-volunteer-activites th.views-field-title,
+div.view-volunteer-activites-external th.views-field-title {
+    width: 185px;
+}
+td.views-field-field-date-value,
+td.views-field-field-contact-name-value,
+td.views-field-field-contact-phone-value
+{
+	font-size: 12px;
+}
+.node-report-teaser
+{
+	border: 1px solid #7F98A7;
+	background-color: #F0F0E3;
+	margin-bottom: 2em;
+}
+
+div.cuc-forum-comment
+{
+	margin:1em 0em;
+	padding: 1em;
+	background-color: #F0F0E3;
+}
+
+div.cuc-forum
+{
+/*	background-color: #EFEFEF;*/
+	border-bottom: 1px solid;
+	margin: 1em 0em;;
+	padding: 1em;
+}
+
+div#forum tr
+{
+	font-size:12px;
+}
+
+.w1			/* for rounded corners */
+{
+	background-image:url(/sites/default/files/images/rounded-tl.png);
+	background-position:0 0;
+	background-repeat:no-repeat;
+	left:-1px;
+	position:relative;
+	top:-1px;
+}
+
+.w2		/* for rounded corners */
+{
+	background-image:url(/sites/default/files/images/rounded-tr.png);
+	background-position:100% 0;
+	background-repeat:no-repeat;
+	left:2px;
+	position:relative;
+}
+
+.w3		/* for rounded corners */
+{
+	background-image:url(/sites/default/files/images/rounded-br.png);
+	background-position:100% 100%;
+	background-repeat:no-repeat;
+	position:relative;
+	top:2px;
+}
+.w4		/* for rounded corners */
+{
+	background-image:url(/sites/default/files/images/rounded-bl.png);
+	background-position:0 100%;
+	background-repeat:no-repeat;
+	left:-2px;
+	overflow:hidden;
+	padding:1em 2em;
+	position:relative;
+}
+
+.node-report-teaser a:link, 
+.node-report-teaser a:visited
+{
+	font-size:16px;
+}
+
+.node-report-teaser h2
+{
+	font-size:12px;
+	margin:0.5em;
+	padding: 0 1.5em;
+}
+
+.node-report-teaser div.links
+{
+	margin-bottom: .5em;
+}
+
+.photo-items
+{
+	font-family: arial;
+	color: #8A3429;
+	text-align:center;
+}
+.gallery-description
+{
+	font-weight:bolder;
+	color:#EA985A;
+	font-size:14px;
+}
+div#block-views-photo_gallery-block_1 div.view-photo-gallery div.views-row div.node
+/*For the display of photo gallary list of nodes*/
+{
+	float:left;
+	margin-bottom:35px;
+	margin-top:0 !important;
+	padding-bottom:35px;
+	padding-top:0 !important;
+	position:relative;
+	width:25%;
+}
+
+div#block-views-photo_gallery-block_1  /*#2*/
+div.view-photo-gallery 
+div.views-row 
+div.node 
+h2
+{
+	display: none;
+}
+
+.clickable-title
+{
+	font-size:12px;
+	font-weight:bold;
+}
+.image-wrapper
+{
+	float:left;
+}
+li.item
+{
+	height:203px; 
+	margin-bottom: 5px; 
+	list-style:none;
+	margin-left: -10;
+	border-bottom:1px dotted #CDCDCD;
+}
+
+.item-content, .shadow
+{
+  position: relative;
+  top: -4px;
+}
+.item-content img
+{
+	border:none; 
+	height:181px;
+}
+
+.shadow 
+{
+	background-color: #959595;
+	top: 6px;
+	left: 15px;
+}
+
+.item-content 
+{
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 0.5em;
+  left: -4px;
+}
+.item-image-container 
+{ 
+	float:left;
+	text-align:center;
+	background-image:url(images/search-instruction.jpg);
+	background-repeat:no-repeat;
+	background-position: 2% 100%;
+}
+.item-description
+{
+	height: 190px;
+	width: 270px;  /* 545*/
+	float:right;
+}
+.image-description
+{
+	width: 175px;
+	font-size: .75em;
+	clear: left;
+	position: relative;
+	top: 8px;
+	left: 10px;
+	line-height: 1em;
+}
+
+/*Other various styles*/
+.block-title
+{
+}
+div.cd
+{
+	background-image:url(/images/cd-disk.gif);
+	background-repeat:no-repeat;
+	height:580px;
+	text-align:right;
+	width:430px;
+}
+div.hug
+{
+	margin-top: -5px;
+}
+
+div#menu-bar
+{
+    height: 20px;
+    width: 932px;
+    border: 1px black solid;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border-top: 0px;
+    /*position:relative;*/
+}
+
+div#menu-items
+{
+}
+.pageTitle				/*#2*/
+{
+	color:#EA985A;
+	float:right;
+	font-size:24px;
+	height:20px;
+	position:relative;
+	text-align:left;
+	top:10px;
+	width:54%;
+}
+div.sideMenu
+{
+  float: left;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  background-color: #ea985a;
+}
+div#container
+{
+	margin: 0 auto;
+	width:934px;
+	position:relative;
+}
+div#centerWrapper-narrow
+{
+	width: 515px;
+	background-color:transparent;
+	position:static;
+	float:left;
+}
+div#centerWrapper-wide
+{
+    width: 735px;
+	float:right;
+}
+div#centerWrapper-narrow p,
+div#centerWrapper-wide p
+{
+	font-family: arial,sans-serif,tahoma,verdana;
+	font-family:'lucida grande','Lucida Sans Unicode',Tahoma,sans-serif;
+	font-size: 120%;
+	line-height:1.6em;
+}
+
+div#rightColumn
+{
+/*	border:1px solid;*/
+	float:right;
+	position:relative;
+	top:-21px;
+	text-align:left;
+	width:235px;
+}
+.announcements
+{
+	padding-right:0pt;
+}
+p.announcements
+{
+	margin-left: 10px; 
+	line-height: 12px; 
+	font-size: 11px;
+}
+div.announcements
+{
+	margin-left: 10px; 
+	line-height: 12px; 
+	font-size: 11px;
+	margin-top: -5px;
+	margin-bottom: 7px;
+}
+#related-links ul li
+{
+	margin-left: 0px;
+	padding-left: 5px;
+}
+#related-links a
+{
+	line-height: 100%;
+}
+
+.left-pic-border
+{
+	float: left;
+	border: medium solid #5294C1; 
+	padding: 6px; 
+	margin-top: 5px; 
+	margin-right: 10px;
+}
+.right-pic-border
+{
+	float: right;
+	border: medium solid #5294C1; 
+	padding: 6px; 
+	margin:0em 0em 0em 2em;
+}
+.left-pic-no-border
+{
+	float: left;
+	margin-top: 0px; 
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.div-temp{
+	width:100%;
+	/*height:100px;
+	line-height:100px;
+	float:left;
+	margin:0 10px 0 0;*/
+	border:1px solid #000;
+	/*text-align:center;*/
+	position:relative;
+	
+}
+
+.right-pic-no-border
+{
+	float: right;
+	margin-top: 0px; 
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+.passage
+{
+	padding-left:30px;
+	width:80%;
+}
+.header-link
+{
+	font-size:16px;
+}
+li.no-bullet
+{
+	list-style-type:none;
+	background:none;
+}
+ul.bulleted li
+{
+	list-style-type: disc; 
+}
+.float-left
+{
+	float:left;
+	margin-right:10px;
+}
+.link-underlined
+{
+	font-size:small;
+	color: Blue;
+	text-decoration:underline;
+}
+
+.cc-pic-1
+{
+	position: relative;
+	top: 4px;
+}
+.cc-pic-2
+{
+	left: 60px; 
+	position: relative; 
+	top: -30px;
+}
+.cc-pic-3
+{
+	left: -190px; 
+	position: relative; 
+	top: -125px;
+	margin-top: 20px;
+}
+.cc-pic-4
+{
+	left: 60px; 
+	position: relative; 
+	margin-top: 20px;
+	top: -200px;
+}
+ul.contact-list li div
+{
+	font-weight: bold;
+	float:left;
+	margin-right: 1em;
+	font-style: italic;
+}
+ul.contact-list li, li ul
+{
+	padding: 0em .6em;
+	margin: 0em;
+}
+div.inset
+{
+	text-align: center;
+}
+.inset-header
+{
+	font-weight: bold; 
+	font-size: 1.2em; 
+	padding: 0.4em;
+}
+.links  /***** mgh 4-18-09: to center "go back to form" link on webform confirmation page *****/
+{
+	text-align:center;
+	margin-bottom:2em;
+}
+div.links
+{
+	margin-bottom: 25px;
+}
+#blog-teaser-title, #blog-teaser-title a:link, #blog-teaser-title a:visited
+{
+	font-size: 16px;
+}
+.cuc-blog
+{
+	margin-top: 2em;
+	margin-bottom: 0;
+	border: 1px solid #7F98A7;
+}
+.auction-image
+{
+	border: 2px solid #8b0000;
+	text-align: center;
+}
+.gallery-photo	/*#2*/
+{
+	float:left;
+	margin-bottom:35px;
+	margin-top:0 !important;
+/*	padding-bottom:35px;*/
+	padding-top:0 !important;
+	position:relative;
+	width:20%;
+}
+div.view-photo-gallery div div div h2
+{
+	display:none;
+}
