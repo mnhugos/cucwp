@@ -1,0 +1,54 @@
+<?php
+
+function re_registration_init() {
+  // We only want to include the JS for IE and not browsers
+  // capable of doing everything in css.  We have to put all the JS
+  // in drupal_set_html_head so they get called in the right order. ;-(
+
+  $inline_script = <<<EOL
+    <!--[if IE]>
+      <script type="text/javascript" src="/sites/all/modules/contrib/jquery_update/replace/jquery.js?g"></script>
+      <script type="text/javascript" src="/sites/all/libraries/jquery.ui/ui/minified/jquery.ui.all.min.js?g"></script>
+      <script type="text/javascript" src="/sites/all/libraries/jquery.ui/ui/minified/ui.core.min.js?g"></script>
+      <script type="text/javascript" src="/sites/all/libraries/jquery.ui/ui/minified/ui.tabs.min.js?g"></script>
+      <script type="text/javascript" src="/sites/all/themes/cuc/webform/js/re_registration_form.js?g">  <![endif]-->
+EOL;
+    $data = array(
+        '#type'   => 'markup',
+        '#markup' => $inline_script
+    );
+    drupal_add_html_head( $data, 'js_ie');
+}
+
+/**
+ * Implements hook_form_alter.
+ *
+ * identify the form by "webform_client_form_437" which is the node id on both my local and production (got lucky)
+ */
+function re_registration_form_alter( &$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'webform_client_form_437':
+      // add custom class to the child info fieldsets, to be make them easier to identify for jQuery
+      for( $i=1; $i<5; $i++ ){
+        if ($form['submitted']['childchildren_information']['child_'.$i]) {  // if this child exists
+          $form['submitted']['childchildren_information']['child_'.$i]['#attributes']['class'][] = "re_child";
+        }
+        else {
+          $i = 5;
+        }
+      }
+      // check Volunteer rows and add a class
+      for( $i=1; $i<7; $i++ ){
+        $form['submitted']['parent_participation']['row_'.$i]['col_1']['#prefix'] =  "<div class=\"option-rating\">";
+        $form['submitted']['parent_participation']['row_'.$i]['col_1']['#suffix'] =  "</div>";
+        $form['submitted']['parent_participation']['row_'.$i]['col_2']['#prefix'] =  "<div class=\"option-rating\">";
+        $form['submitted']['parent_participation']['row_'.$i]['col_2']['#suffix'] =  "</div>";
+        $form['submitted']['parent_participation']['row_'.$i]['col_3']['#prefix'] =  "<div class=\"option-desc\">";
+        $form['submitted']['parent_participation']['row_'.$i]['col_3']['#suffix'] =  "</div>";
+      }
+      break;
+  }
+}
+
+
+

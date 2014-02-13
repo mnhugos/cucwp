@@ -1,0 +1,11 @@
+; $Id$
+;Created By: Margaret Hugos-Gold
+;Inital Creations Date: 3/08/2012
+;Modified for D7 on: 1/24/2014
+
+name = RE Registration
+description = "Online registration form for RE. Uses Webform"
+version = 7.x-1.x
+project =  RE Registration
+core = 7.x
+package = Other

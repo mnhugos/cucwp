@@ -1,0 +1,32 @@
+; $Id: garland.info,v 1.5 2007/07/01 23:27:32 goba Exp $
+name = cuc
+description = CUC web site theme, hopefully will be Tableless, recolorable, multi-column, fluid width theme (default).
+version = VERSION
+core = 6.x
+engine = phptemplate
+stylesheets[all][] = cuc_style.css
+stylesheets[all][] = style.css
+stylesheets[all][] = cuc_blocks.css
+stylesheets[all][] = forum/forum.css
+stylesheets[all][] = comment/comment.css
+stylesheets[all][] = pledge-form.css
+stylesheets[all][] = re-registration-form.css
+stylesheets[all][] = re-registration-form-3.0.css
+
+scripts[] = js/functions.js
+
+stylesheets[print][] = print.css
+
+regions[left] = Left sidebar
+regions[right] = Right sidebar
+regions[memoir] = Memoir
+regions[content] = Content
+regions[header] = Header
+regions[footer] = Footer
+
+
+
+; Created by Margaret Hugos-Gold on 2008-07-30 for Drupal version 6.3
+
+
+

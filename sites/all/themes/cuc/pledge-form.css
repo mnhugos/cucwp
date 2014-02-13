@@ -1,0 +1,135 @@
+#pledge-form {
+    margin-top: 3em;
+}
+
+#webform-client-form-432 label {
+    display:inline;
+}
+
+#edit-submitted-other {
+    margin-left: 20px;
+    position: relative;
+    top: -25px;
+}
+#edit-submitted-payments-will-be-made-as-follows-0-wrapper {
+    float:left;
+}
+
+#webform-component-your-names,
+#webform-component-phone,
+#webform-component-city,
+#webform-component-state,
+#webform-component-zip {
+    float: left;
+    margin-right: 20px;
+}
+
+#webform-component-address,
+#webform-component-email,
+#webform-component-street-1 {
+    clear:left;
+}
+
+#edit-submitted-email-wrapper div,
+#edit-submitted-email-wrapper p {
+    display:inline;
+}
+
+#edit-submitted-total-pledge-amount-wrapper span.field-suffix {
+    display: block;
+}
+
+#webform-client-form-432#webform-component-city {
+    margin-left: 28px;
+}
+#edit-submitted-address-street-2,
+#edit-submitted-address-city {
+    margin-left:15px;
+}
+#webform-component-street-1 label,
+#webform-component-street-2 label,
+#webform-component-city label,
+#webform-component-email label {
+    width:77px;
+    float:left;
+}
+
+#webform-component-street_1 {
+    clear:both;
+}
+
+#edit-submitted-city-wrapper,
+#edit-submitted-state-wrapper,
+#edit-submitted-zip-wrapper {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+#edit-submitted-other-wrapper label {
+    visibility:hidden;
+}
+
+#pledge-form div.form-item label {
+    display: inline;
+}
+#edit-name-wrapper {
+    margin-right: 25px;
+}
+#edit-city,
+#edit-state-wrapper,
+#edit-zip-wrapper {
+    margin-left: 17px;
+}
+
+#edit-area-code-wrapper,
+#edit-exchange-wrapper,
+#edit-local-wrapper,
+#edit-name-wrapper,
+#edit-city-wrapper,
+#edit-state-wrapper,
+#edit-zip-wrapper,
+#edit-payment-option-wrapper {
+    display:inline;
+}
+
+
+fieldset.phone {
+    padding: 0;
+    border: none;
+}
+
+fieldset.phone legend {
+    font-weight: bold;
+}
+
+#calculatedPayment {
+    margin-left:1em;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+div[id*='edit-submitted-payments-will-be-made-as-follows-'] .option {
+    width: 245px;
+    display: block;
+    float: left;
+}
+div#edit-submitted-payments-will-be-made-as-follows-0-wrapper {
+    width: 60px;
+}
+#webform-component-text p{
+    margin-top:-0.8em;
+}
+#webform-component-payments-will-be-made-as-follows .form-radios .form-item {
+    clear:both;
+}
+#webform-component-other .form-item {
+    margin: 2px;
+}
+#webform-component-other {
+    float: left;
+    width: 230px;
+    height: 30px;
+}
+#webform-component-i-plan-to-use-securities-to-pay-this-pledge {
+    clear:both;
+}
