@@ -7,24 +7,26 @@
  */
 
 // Numeric only control handler
-jQuery.fn.ForceNumericOnly = function() {
-  return this.each( function()
-  {
-      $(this).keydown( function(e)
-      {
-        var key = e.charCode || e.keyCode || 0;
-        // allow backspace, tab, delete, arrows, numbers, dashes
-        // and keypad numbers ONLY
-        return (
-          key == 8 ||    // backspace
-          key == 9 ||    // tab
-          key == 46 ||   // delete
-          key == 189 ||  // dash
-          key == 109 ||  // subtract symbol on number pad
-          (key >= 37 && key <= 40) || // arrow keys
-          (key >= 48 && key <= 57) || // numbers above letters
-          (key >= 96 && key <= 105)   // keypad numbers
-        );
-      });
-  });
+jQuery.fn.ForceNumericOnly = function(event, amt) {
+        event = (event) ? event : window.event;
+        var charCode = (event.which) ? event.which : event.keyCode;
+
+        if (charCode == 46) {  // delete key is okay
+            return true;
+        }
+        if (charCode < 48 || charCode > 57) {  // 0 - 9
+            return 0; // Numbers Only Please
+        }
+    };
+
+jQuery.fn.isValidDollarAmt = function(amt) {
+    if (amt) {
+        var regExp = /^(\d+)\.{0,1}(\d{0,2})$/;
+        var found = amt.toString().match(regExp);
+        if (!found) {
+            return false; // Something's wrong
+        }
+        return true;
+    };
+
 };// JavaScript Document
