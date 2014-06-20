@@ -5,12 +5,11 @@
 #webform-client-form-432 label {
     display:inline;
 }
-
-#edit-submitted-other {
-    margin-left: 20px;
-    position: relative;
-    top: -25px;
+.lblDollarError {
+    color: #B22C21;
+    margin-left: 1em;
 }
+
 #edit-submitted-payments-will-be-made-as-follows-0-wrapper {
     float:left;
 }
@@ -65,8 +64,8 @@
     margin-bottom: 10px;
 }
 
-#edit-submitted-other-wrapper label {
-    visibility:hidden;
+#webform-component-other label {
+    display:none;
 }
 
 #pledge-form div.form-item label {
@@ -102,10 +101,10 @@ fieldset.phone legend {
     font-weight: bold;
 }
 
-#calculatedPayment {
+.calculatedPayment {
     margin-left:1em;
     font-weight: bold;
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
 
 div[id*='edit-submitted-payments-will-be-made-as-follows-'] .option {
@@ -125,10 +124,15 @@ div#edit-submitted-payments-will-be-made-as-follows-0-wrapper {
 #webform-component-other .form-item {
     margin: 2px;
 }
+#edit-submitted-payments-will-be-made-as-follows div:nth-child(5) {
+    float: left;
+}
 #webform-component-other {
     float: left;
     width: 230px;
     height: 30px;
+    margin-left: 20px;
+    margin-top: -10px;
 }
 #webform-component-i-plan-to-use-securities-to-pay-this-pledge {
     clear:both;
