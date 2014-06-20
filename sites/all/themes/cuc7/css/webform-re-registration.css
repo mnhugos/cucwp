@@ -1,0 +1,349 @@
+input[type="checkbox"] {
+    margin: 0px 7px 0px 15px;
+    float: left;
+}
+legend {
+    font-size: 14px;
+    font-weight: bold;
+}
+.heading {
+    font-weight: bold;
+}
+#webform-client-form-437 label {
+    font-size: 0.959em;
+}
+#webform-client-form-437 #edit-actions {
+    font-size: 1.5em;
+}
+fieldset[id^='webform-component-parentguardian'],
+fieldset#webform-component-parent-participation{
+    background: #fff url(images/gradient-inner.png) repeat-x 0 0;
+}
+/*******************************   Parent Info  *****************************/
+#webform-client-form-437 #webform-component-first-name-1 label,
+#webform-client-form-437 #webform-component-last-name-1 label,
+#webform-client-form-437 #webform-component-street-1-1 label,
+#webform-client-form-437 #webform-component-street-2-1 label {
+    width:95px;
+    float:left;
+}
+
+#webform-client-form-437 #webform-component-street-1-1 input,
+#webform-client-form-437 #webform-component-street-2-1 input {
+    /*float:right;*/
+    /*padding-bottom: 23px;*/
+}
+
+fieldset#webform-component-parentguardian-1,
+fieldset#webform-component-parentguardian-2 {
+    float:left;
+    width: 315px;
+    height: 390px;
+    margin-bottom: 20px;
+}
+
+fieldset#webform-component-parentguardian-1 {
+    margin-right: 12px;
+}
+
+fieldset#webform-component-parentguardian-2 {
+    padding-right: 0px;
+    margin-left: 24px;
+}
+
+/*#webform-client-form-437 #webform-component-parentguardian-1 legend,*/
+/*#webform-client-form-437 #webform-component-parentguardian-2 legend {*/
+    /*font-size: 12px;*/
+/*}*/
+
+#webform-client-form-437 #webform-component-state-1,
+#webform-client-form-437 #webform-component-state-2 {
+    margin-left: 0px;
+}
+
+#webform-client-form-437 #webform-component-parentguardian-1--city-1,
+#webform-client-form-437 #webform-component-parentguardian-1--state-1,
+#webform-client-form-437 #webform-component-parentguardian-1--zip-1,
+#webform-client-form-437 #webform-component-parentguardian-2--city-1,
+#webform-client-form-437 #webform-component-parentguardian-2--state-1,
+#webform-client-form-437 #webform-component-parentguardian-2--zip-1 {
+    float: left;
+    margin-right: 5px;
+}
+
+#webform-client-form-437 #webform-component-parentguardian-1--home-phone-1,
+#webform-client-form-437 #webform-component-parentguardian-2--home-phone-1 {
+    clear: both;
+}
+
+
+#webform-client-form-437 #webform-component-parentguardian-1--home-phone-1,
+#webform-client-form-437 #webform-component-parentguardian-1--cell-phone-1,
+#webform-client-form-437 #webform-component-parentguardian-2--home-phone-1,
+#webform-client-form-437 #webform-component-parentguardian-2--cell-phone-1 {
+    /*width: 110px;*/
+    float: left;
+    margin-right: 10px;
+    /*margin-top: -15px;*/
+}
+
+#webform-client-form-437 #webform-component-parentguardian-1--email-1,
+#webform-client-form-437 #webform-component-parentguardian-2--email-1,
+#webform-client-form-437 #webform-component-parentguardian-1--email-1 {
+    clear:both;
+}
+#webform-client-form-437 #webform-component-parentguardian-1--email-1 p,
+#webform-client-form-437 #webform-component-parentguardian-2--email-1 p,
+#webform-client-form-437 #webform-component-medical-1 p,
+#webform-client-form-437 #webform-component-additional-1 p {
+    margin-top: .2em;
+    font-size: 11px;
+}
+/****************************  Child Info  *****************/
+fieldset#webform-component-childchildren-information {
+    clear: both;
+}
+fieldset#webform-component-childchildren-information > div.fieldset-wrapper {
+    padding: 0;
+    margin-top: 0;
+}
+.option-desc .fieldset-wrapper {
+    padding: 0;
+    margin-top: 0px;
+    position: relative;
+    top: -10px;
+}
+#webform-client-form-437,
+.ui-tabs-panel {
+    font: 11px Verdana, sans-serif;
+}
+
+.ui-tabs .ui-tabs-panel {
+    background: #fff url(images/gradient-inner.png) repeat-x 0 0;
+    border-width: 1px;
+}
+fieldset .re-child {    /* fix gap the jquery creates between the tabs and the fieldset element */
+    margin-top: -9px;
+}
+/************************  tab stuff  *************/
+.ui-helper-clearfix:after {      /* get rid of '.' that jquery put in  -- it's contributing to the gap between tabs and fieldset element*/
+    content:"";
+}
+
+#webform-component-childchildren-information ul {
+    margin-bottom: -4px;
+    display: inline-block;
+    background: none;
+    border:none;
+}
+.ui-tabs-nav li {
+    margin-right: 10px;
+    border: 1px solid rgb(165, 165, 165);
+    background-color: #f5f5f5;
+}
+
+.ui-tabs-nav li a {
+    background: none;
+    border-bottom: none;
+}
+
+.ui-tabs-nav li.ui-tabs-selected a,
+.ui-tabs-nav li.ui-tabs-selected a:hover {
+    background: #B4DAFA;
+    font-weight: bold;
+}
+
+fieldset#webform-component-childchildren-information {
+    background: none;
+    border:none;
+    width:100%;
+    margin-bottom: 15px;
+}
+
+.re-child {
+    padding: 10px 0px 10px 10px;
+    border: 1px solid rgb(165,165,165);
+}
+
+fieldset#webform-component-childchildren-information legend
+ {
+    display:none;
+}
+
+.re-child {
+    padding: 10px 0px 10px 10px;
+    border: 1px solid rgb(165,165,165);
+}
+fieldset.re-child [id$='--first-name-child-1'],  /* element id ends in... */
+fieldset.re-child [id$='--last-name-child-1'] {
+    width:185px;
+    float: left;
+}
+fieldset.re-child [id$='--date-of-birth-1'] {
+    width:240px;
+    float: left;
+    margin-left: 2px;
+}
+fieldset.re-child [id$='--gender-1'] {
+    clear: both;
+}
+
+fieldset.re-child [id$='--gender-1'] {
+    width: 180px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+fieldset.re-child [id$='--gender-1'] label {
+    float:left;
+    width:70px
+}
+
+fieldset.re-child [id$='--gender-1'] label.option {
+    width:35px
+}
+
+fieldset.re-child [id$='--gender-1'] .form-radios {
+    float: left;
+    width: 80px;
+    margin: 0px;
+}
+
+fieldset.re-child [id$='--medical-1'],
+fieldset.re-child [id$='--signing-1'] {
+    clear:both;
+}
+fieldset.re-child [id$='--gender-1'] .form-radios .form-item {
+    margin: 0px;
+}
+
+fieldset.re-child [id$='--gender-1'] .form-radios .form-item label,
+fieldset.re-child [id$='--gender-1'] .form-radios .form-item input {
+    margin:0px;
+}
+
+fieldset.re-child [id$='--grade-1'] {
+    width: 190px;
+    float: left;
+}
+fieldset.re-child [id$='--grade-1'] label {
+    width: 135px;
+    float: left;
+}
+fieldset.re-child [id$='--grade-instructions-1'] {
+    float: left;
+    width: 250px;
+    font-size: 11px;
+}
+
+g#webform-component-parent-participation .option-rating input,
+#webform-component-parent-participation #webform-component-preferred-grade input {
+    text-align: center;
+}
+
+#webform-component-parent-participation fieldset {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#webform-component-parent-participation .section {
+    margin-bottom:15px
+}
+
+.option-rating,
+.option-desc {
+    float:left;
+    background: none;
+    border:none;
+    /*width:100%;*/
+    /*margin-bottom: 15px;*/
+
+}
+.option-rating,
+#webform-component-parent-participation--row-1--col-1,
+#webform-component-parent-participation--row-1--col-2{
+    width: 80px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.option-rating div {
+    margin-top: 0px;
+}
+
+.option-desc {
+    width: 530px;
+    margin-left: 20px;
+}
+.option-desc .col-1 {
+    width: 300px;
+    float: left;
+}
+.option-desc * /*,
+.option-desc .form-item */ {
+    margin:0px;
+    top: 0px;
+}
+
+#webform-client-form-437 #webform-component-day-1 label,
+#webform-client-form-437 #webform-component-year-1 label {
+    display:none;
+    /*float:left;*/
+}
+
+#webform-client-form-437 #webform-component-new-to-cuc-1  {
+    width: 265px;
+    float: left;
+}
+
+#webform-client-form-437 #webform-component-changed-info-1  {
+    width: 445px;
+    float: left;
+}
+
+#webform-client-form-437 #webform-component-day-1 .field-prefix,
+#webform-client-form-437 #webform-component-year-1 .field-prefix {
+    width:20px;
+    float:left;
+}
+
+#webform-client-form-437 #webform-component-day-1 input {
+    width:20px;
+    float:left;
+}
+
+
+/****************************  Volunteer Info  *****************/
+#webform-component-parent-participation {
+    clear: both;
+    font-size: 12px;
+}
+fieldset#webform-component-parent-participation fieldset{
+    border: none;
+    margin-bottom: 10px;
+    background: none;
+}
+
+fieldset#webform-component-parent-participation legend,
+fieldset#webform-component-parent-participation .option-rating label
+{
+    display: none;
+}
+#edit-submitted-parent-participation-row-2-col-3-preferred-grade-wrapper label,
+#edit-submitted-parent-participation-row-3-col-3-preferred-grade-wrapper label{
+    display: block;
+}
+
+#webform-component-parent-participation #webform-component-row-2 #webform-component-col-1 label,
+#webform-component-parent-participation #webform-component-row-2 #webform-component-col-2 label{
+    display:none;
+}
+#webform-client-form-437 #webform-component-new-to-cuc-1 label,
+#webform-client-form-437 #webform-component-changed-info-1 label,
+#webform-component-parent-participation div#webform-component-parent-participation--speak-with label,
+#webform-component-parent-participation div#webform-component-parent-participation--row-4--col-3--pick-one {
+    float:left;
+}
+
