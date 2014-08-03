@@ -8,4 +8,4 @@ description = "Online registration form for RE. Uses Webform"
 version = 7.x-1.x
 project =  RE Registration
 core = 7.x
-package = Other
+package = CUC
