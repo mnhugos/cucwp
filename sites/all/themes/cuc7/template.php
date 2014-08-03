@@ -48,8 +48,8 @@ function cuc7_form_alter( &$form, &$form_state, $form_id) {
 
 function cuc7_preprocess_node( &$variables) {
   if ($variables['teaser']) {
-    // Add a custom teaser template to theme suggestions array.  This will cause Drupal
-    // to look for that template if we are in teaser mode.
+    // Add a custom teaser template to theme suggestions array.
+    // (specifically included for photo gallery teaser mode)
     $variables['theme_hook_suggestions'][] = 'node__' . $variables['node']->type . '_teaser';
   }
 }
