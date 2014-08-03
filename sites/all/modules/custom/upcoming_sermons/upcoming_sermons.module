@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * Implementation hook_block().
+ *
+ * @param string $op
+ * @param int $delta
+ * @param array $edit
+ * @return array
+ */
+
+/*****************************************
+ *
+ *****************************************/
+function upcoming_sermons_block_info()
+{
+//  $blocks = array();
+  $blocks = array(
+    'upcoming_sermons' => array(
+      'info' => t('Upcoming Sermons'),
+    )
+  );
+
+  return $blocks;
+}
+
+/*****************************************
+ *
+ *****************************************/
+function upcoming_sermons_block_view( $delta = '')
+{
+  $block = array();
+  switch ($delta) {
+    case 'upcoming_sermons':
+      $block['subject'] = '';
+      $block{'content'} = upcoming_sermons_block_render( $delta);
+      return $block;
+      break;
+  }
+  return $block;
+}
+
+/*****************************************
+ *
+ *****************************************/
+function upcoming_sermons_block_render() {
+  $view = views_get_view( 'upcoming_sermons');
+  $view->set_display( 'Block');
+  $view->pre_execute( array());
+  $view->execute();
+
+  $html = '';
+  $total_rows = sizeof($view->result);
+  foreach ($view->result as $index => $data) {
+    switch ($index) {
+      /* This Sunday */
+      case 0:
+          $html = '<h3>This Sunday</h3>' . '<ul class="sermon">' . upcoming_sermons_render_sermon( $data) . '</ul>';
+          break;
+
+      /* 2nd Sunday */
+      case 1:
+          $html .= '<h3>Upcoming Sundays</h3><div class="one_half"><ul class="sermon">' . upcoming_sermons_render_sermon( $data);
+          $html .= ($total_rows == $index+1) ? '</ul></div>' : '';   /* close tags if this is the last row */
+          break;
+
+      /* 3rd or 5th Sunday */
+        case 2:
+        case 4:
+          $html .= upcoming_sermons_render_sermon( $data);
+          $html .= '</ul></div>';
+          break;
+
+      /*  4th Sunday */
+        case 3:
+          $html .= '<div class="one_half"><ul class="sermon">' . upcoming_sermons_render_sermon( $data);
+          $html .= ($total_rows == $index+1) ? '</ul></div>' : '';   /* close tags if this is the last row */
+          break;
+    }
+  }
+  return $html;
+}
+
+function upcoming_sermons_render_sermon( &$data) {
+  $html = '';
+  $html .= '<li class="date"><strong>' . $data->field_field_sunday_date[0]['rendered']['#markup'] . ':&nbsp;&nbsp;</strong></li>';
+  $html .= '<li class="speaker"><strong>' . $data->field_field_speaker[0]['rendered']['#markup'] . '</strong></li>';
+  $html .= '<li class="topic">' . $data->field_field_sermon_title_as_title[0]['rendered']['#markup'] . '</li>';
+  return $html;
+}
