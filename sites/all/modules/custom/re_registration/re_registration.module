@@ -26,12 +26,11 @@ EOL;
  * identify the form by "webform_client_form_437" which is the node id on both my local and production (got lucky)
  */
 function re_registration_form_alter( &$form, &$form_state, $form_id) {
-  switch ($form_id) {
-    case 'webform_client_form_437':
+      // form_id = 'webform_client_form_437'
       // add custom class to the child info fieldsets, to be make them easier to identify for jQuery
       for( $i=1; $i<5; $i++ ){
         if ($form['submitted']['childchildren_information']['child_'.$i]) {  // if this child exists
-          $form['submitted']['childchildren_information']['child_'.$i]['#attributes']['class'][] = "re_child";
+          $form['submitted']['childchildren_information']['child_'.$i]['#attributes']['class'][] = "re-child";
         }
         else {
           $i = 5;
@@ -46,8 +45,6 @@ function re_registration_form_alter( &$form, &$form_state, $form_id) {
         $form['submitted']['parent_participation']['row_'.$i]['col_3']['#prefix'] =  "<div class=\"option-desc\">";
         $form['submitted']['parent_participation']['row_'.$i]['col_3']['#suffix'] =  "</div>";
       }
-      break;
-  }
 }
 
 
