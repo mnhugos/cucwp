@@ -1,3 +1,12 @@
+.align-left {
+    float: left;
+    border: 1px solid black;
+}
+.align-right {
+    float: right;
+    border: 1px solid black;
+    margin-left: 10px;
+}
 body {
     font-size: 15px;
 }
@@ -26,13 +35,6 @@ hr {
 }
 #header {
     max-height: 157px;
-}
-/*------  Sermons listing page: reverse the normal link text underline behavior ------*/
-#block-views-sermons-block-1 a{
-    text-decoration: none;
-}
-#block-views-sermons-block-1 a:hover {
-    text-decoration: underline;
 }
 
 /*---------------------- Menus */
@@ -149,32 +151,6 @@ hr {
     color:#000000;
     text-decoration: underline;
 }
-/* Homepage Right rail sidebar blocks */
-.region-sidebar-second .block ul {
-    margin: 0;
-    padding: 0;
-}
-.region-sidebar-second .block ul li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    font-weight: bold ;
-}.region-sidebar-second .block ul li ul li {
-    list-style-type: none;
-    margin-left: 1.2em;
-    padding: 0;
-    font-weight: normal;
-}
- .region-sidebar-second #blogs {
-     /*text-align:center;*/
-     background-image: url('../images/blogspot.png');
-     background-repeat: no-repeat;
-     background-position: 130px;
- }
- .region-sidebar-second #blogs ul li:first-of-type {
-     float:left;
-     margin-right: 45px;
- }
 /*---- Miscellaneous -----*/
 .left-pic-border {
 float: left;
@@ -220,8 +196,12 @@ margin-right: 10px;
 	margin-top: 20px;
 	top: -200px;
 }
-.contact-staff ul li,
-.contact-staff ul li ul li {
+.region-content ul {
+    margin: 0 0;
+}
+
+ul li,
+ul li ul li {
     list-style-type: none;
 }
 .contact-staff ul li ul {
@@ -241,6 +221,11 @@ margin-right: 10px;
 }
 #mission {
     margin-bottom: 20px;
+    /*border-top: 15px solid #a8a8a8;*/
+    padding-top: .2em;
+}
+#mission > p {
+    background-color: #e2e2e2;
 }
 #teaser-photo {
     height: 160px;
@@ -261,17 +246,18 @@ a:link, a:visited {
     font-weight: bold;
     float: left;
 }
+div#minister-dre {
+    overflow: hidden;
+    border-top: 20px solid #aeaeae;
+}
 div#minister-dre ul {
     list-style-type: none;
-    margin-top: 2em;
+    margin-top: -1px;
+    padding: 0;
 }
-/*-----------  Right Rail Blocks ---------------*/
-#sunday-schedule {
-    text-align: center;
-}
-#sunday-schedule ul li ul li {
-    font-weight: normal;
-    margin-bottom: .5em;
+div#minister-dre img {
+    padding: 3px;
+    border: 1px solid #aeaeae;
 }
 /*-----------------------------------------------------------------------------------------------*/
 /* mobile browsers */
