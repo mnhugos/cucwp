@@ -5,7 +5,6 @@ core = 7.x
 
 stylesheets[all][] = css/cuc7.css
 stylesheets[all][] = css/cuc7-layout.css
-stylesheets[all][] = css/cuc7-webform-pledge.css
 stylesheets[all][] = css/cuc7-blocks.css
 stylesheets[all][] = color/color.css
 
