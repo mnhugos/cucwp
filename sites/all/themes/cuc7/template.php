@@ -14,12 +14,19 @@ function cuc7_preprocess_page( &$variables) {
 
     if (isset ($variables['node'])){
       if ($variables['node']->nid == '432') {  // Pledge Form
+        drupal_add_js(path_to_theme() . '/js/functions.js');
         drupal_add_js( path_to_theme() . '/webform/js/pledge_form.js');
+        drupal_add_css( path_to_theme() . '/css/cuc7-webform-pledge.css');
       }
       if ($variables['node']->nid == '437') {  // RE Registration Form
         drupal_add_library('system','ui.tabs');
+//        drupal_add_js( path_to_theme() . '/webform/js/re_registration_form.js');
+//        drupal_add_css( path_to_theme() . '/css/cuc7-webform-re-registration.css');
         drupal_add_js( path_to_theme() . '/webform/js/re_registration_form.js');
-        drupal_add_css( path_to_theme() . '/css/webform-re-registration.css');
+        drupal_add_css( path_to_theme() . '/css/cuc7-webform-re-registration.css');
+      }
+       if ($variables['node']->nid == '484') {  // RE Registration Form
+        drupal_add_css( path_to_theme() . '/css/cuc7-webform-journey-group-signup.css');
       }
     }
 }
@@ -40,10 +47,120 @@ function cuc7_menu_link__main_menu( $variables)
     return $link_text;
 }
 
+/**
+ * Implements hook_form_alter.
+ * node id's on both my local and production are the same (got lucky)
+ */
 function cuc7_form_alter( &$form, &$form_state, $form_id) {
-    if ($form_id == 'webform_client_form_432') {  // Pledge Form
+  // *****  P L E D G E   F O R M  ********
+  if ($form_id == 'webform_client_form_432') {
         $form['#attributes']['class'][] = 'pledge-form';
     }
+
+  // *****  R E   R E G I S T R A T I O N   F O R M  ******
+  // form_id = 'webform_client_form_437'
+  // add custom class to the child info fieldsets, to be make them easier to identify for jQuery
+  // Form_alter runs for ALL formS, so must check for which form is currently being processed.
+  // NOTE: Possible to implement "hook_form_FORM_ID_alter" to create separate functions for specified forms, but won't yet...
+  if ($form_id == 'webform_client_form_437') {
+    for( $i=1; $i<5; $i++ ){
+      if ($form['submitted']['childchildren_information']['child_'.$i]) {  // if this child exists
+        $form['submitted']['childchildren_information']['child_'.$i]['#attributes']['class'][] = "re-child";
+      }
+      else {
+        $i = 5;
+      }
+    }
+    // check Volunteer rows and add a class
+    for( $i=1; $i<7; $i++ ){
+      $form['submitted']['parent_participation']['row_'.$i]['col_1']['#prefix'] =  "<div class=\"option-rating\">";
+      $form['submitted']['parent_participation']['row_'.$i]['col_1']['#suffix'] =  "</div>";
+      $form['submitted']['parent_participation']['row_'.$i]['col_2']['#prefix'] =  "<div class=\"option-rating\">";
+      $form['submitted']['parent_participation']['row_'.$i]['col_2']['#suffix'] =  "</div>";
+      $form['submitted']['parent_participation']['row_'.$i]['col_3']['#prefix'] =  "<div class=\"option-desc\">";
+      $form['submitted']['parent_participation']['row_'.$i]['col_3']['#suffix'] =  "</div>";
+    }
+  }
+    // *****  J O U R N E Y   G R O U P   R E G I S T R A T I O N   F O R M  ******
+
+  if ($form_id == 'webform_client_form_484') {
+//    $form['submitted']['email']['#attributes']['class'][] = "one_fifth";
+//    $form['submitted']['telephone']['#attributes']['class'][] = "one_fifth";
+//    $form['submitted']['first_group_choice']['#attributes']['class'][] = "full-width";
+  }
+}
+
+// this theme function was copied from modules/contrib/webform/webform.module and overridden
+function cuc7_webform_element($variables) {
+  // Ensure defaults.
+  $variables['element'] += array(
+    '#title_display' => 'before',
+  );
+
+  $element = $variables['element'];
+
+  // All elements using this for display only are given the "display" type.
+  if (isset($element['#format']) && $element['#format'] == 'html') {
+    $type = 'display';
+  }
+  else {
+    $type = (isset($element['#type']) && !in_array($element['#type'], array('markup', 'textfield', 'webform_email', 'webform_number'))) ? $element['#type'] : $element['#webform_component']['type'];
+  }
+
+  // Convert the parents array into a string, excluding the "submitted" wrapper.
+  $nested_level = $element['#parents'][0] == 'submitted' ? 1 : 0;
+  $parents = str_replace('_', '-', implode('--', array_slice($element['#parents'], $nested_level)));
+
+  $wrapper_classes = array(
+   'form-item',
+   'webform-component',
+   'webform-component-' . $type,
+  );
+  if (($element['#webform_component']['nid'] == 484)  && (in_array( $element['#title'], array( 'Email', 'Telephone')))) {
+    $wrapper_classes[] = 'one_third';
+  }
+  if (($element['#webform_component']['nid'] == 484)  && (in_array( $element['#title'], array( 'First Group Choice')))) {
+    $wrapper_classes[] = 'full-width';
+  }
+  if (isset($element['#title_display']) && strcmp($element['#title_display'], 'inline') === 0) {
+    $wrapper_classes[] = 'webform-container-inline';
+  }
+  $output = '<div class="' . implode(' ', $wrapper_classes) . '" id="webform-component-' . $parents . '">' . "\n";
+
+  // If #title is not set, we don't display any label or required marker.
+  if (!isset($element['#title'])) {
+    $element['#title_display'] = 'none';
+  }
+  $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . _webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
+  $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . _webform_filter_xss($element['#field_suffix']) . '</span>' : '';
+
+  switch ($element['#title_display']) {
+    case 'inline':
+    case 'before':
+    case 'invisible':
+      $output .= ' ' . theme('form_element_label', $variables);
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+
+    case 'after':
+      $output .= ' ' . $prefix . $element['#children'] . $suffix;
+      $output .= ' ' . theme('form_element_label', $variables) . "\n";
+      break;
+
+    case 'none':
+    case 'attribute':
+      // Output no label and no required marker, only the children.
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+  }
+
+  if (!empty($element['#description'])) {
+    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
+  }
+
+  $output .= "</div>\n";
+
+  return $output;
 }
 
 function cuc7_preprocess_node( &$variables) {
