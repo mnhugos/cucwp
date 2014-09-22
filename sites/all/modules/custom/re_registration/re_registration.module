@@ -20,32 +20,61 @@ EOL;
     drupal_add_html_head( $data, 'js_ie');
 }
 
-/**
- * Implements hook_form_alter.
- *
- * identify the form by "webform_client_form_437" which is the node id on both my local and production (got lucky)
- */
-function re_registration_form_alter( &$form, &$form_state, $form_id) {
-      // form_id = 'webform_client_form_437'
-      // add custom class to the child info fieldsets, to be make them easier to identify for jQuery
-      for( $i=1; $i<5; $i++ ){
-        if ($form['submitted']['childchildren_information']['child_'.$i]) {  // if this child exists
-          $form['submitted']['childchildren_information']['child_'.$i]['#attributes']['class'][] = "re-child";
-        }
-        else {
-          $i = 5;
-        }
-      }
-      // check Volunteer rows and add a class
-      for( $i=1; $i<7; $i++ ){
-        $form['submitted']['parent_participation']['row_'.$i]['col_1']['#prefix'] =  "<div class=\"option-rating\">";
-        $form['submitted']['parent_participation']['row_'.$i]['col_1']['#suffix'] =  "</div>";
-        $form['submitted']['parent_participation']['row_'.$i]['col_2']['#prefix'] =  "<div class=\"option-rating\">";
-        $form['submitted']['parent_participation']['row_'.$i]['col_2']['#suffix'] =  "</div>";
-        $form['submitted']['parent_participation']['row_'.$i]['col_3']['#prefix'] =  "<div class=\"option-desc\">";
-        $form['submitted']['parent_participation']['row_'.$i]['col_3']['#suffix'] =  "</div>";
-      }
+// Override rendering function for Webform Admin,called "webform_admin_content" in "webform.admin.inc"
+// In order to do this, we need to alter the theme registry -- no way to automatically override it
+function re_registration_theme_registry_alter(&$theme_registry) {
+	  $path = drupal_get_path('module', 're_registration');           // get module path
+	  $theme_registry['webform_admin_content']['theme path'] = $path; // register module location so drupal knows where to look for override function
+	  $theme_registry['webform_admin_content']['function'] = 're_registration_webform_admin_content'; // register the override function name
 }
+// ...And here is the overridden function.  Copied it from "webform.admin.inc" and modified
+// TODO  For now, I've hardcoded the form titles to be searched, but this should be folded into the admin form instead to make it more dynamic.
+function re_registration_webform_admin_content($variables) {
+  $nodes = $variables['nodes'];
+  $header = array(
+    t('Title'),
+    array('data' => t('View'), 'colspan' => '4'),
+    array('data' => t('Operations'), 'colspan' => '3')
+  );
 
+  global $user;
+  $rows = array();
+  foreach ($nodes as $node) {
+    // if current form is RE Registration (named differently depending on installation, unfortunately) and current role
+    // is 'dre' then it's okay to print this line item.  Otherwise, it's not okay.
+    $re_registration_form = in_array( $node->title, array('Religious Education Registration', 'RE Registration'));
+    $is_dre = in_array( 'dre', $user->roles);
+    if ( !$re_registration_form && $is_dre) {
+      // print only the re registration form if the user is DRE
+      // so if NOT re registration form and it's a DRE, do nothing
+    }
+    else {
+      $rows[] = array(
+        l($node->title, 'node/' . $node->nid),
+        l(t('Submissions'), 'node/' . $node->nid . '/webform-results'),
+        l(t('Analysis'), 'node/' . $node->nid . '/webform-results/analysis'),
+        l(t('Table'), 'node/' . $node->nid . '/webform-results/table'),
+        l(t('Download'), 'node/' . $node->nid . '/webform-results/download'),
+        node_access('update', $node) ? l(t('Edit'), 'node/' . $node->nid . '/edit') : '',
+        node_access('update', $node) ? l(t('Components'), 'node/' . $node->nid . '/webform') : '',
+        user_access('delete all webform submissions') ? l(t('Clear'), 'node/' . $node->nid . '/webform-results/clear') : '',
+      );
+    }
+  }
 
+  if (empty($rows)) {
+    $webform_types = webform_variable_get('webform_node_types');
+    if (empty($webform_types)) {
+      $message = t('Webform is currently not enabled on any content types.') . ' ' . t('Visit the <a href="!url">Webform settings</a> page and enable Webform on at least one content type.', array('!url' => url('admin/config/content/webform')));
+    }
+    else {
+      $webform_type_list = webform_admin_type_list();
+      $message = t('There are currently no webforms on your site. Create a !types piece of content.', array('!types' => $webform_type_list));
+    }
 
+    $rows[] = array(
+      array('data' => $message, 'colspan' => 7),
+    );
+  }
+  return theme('table', array('header' => $header, 'rows' => $rows));
+}
