@@ -27,21 +27,25 @@
         
         <!------------------------------------------------------- #header -->
         <?php if ($page['header_right']) { ?>
-        <div id="header" class="five columns clearfix">
-		<?php } else { ?>
-        <div id="header" class="sixteen columns clearfix">   
+          <div id="header" class="five columns clearfix">
+		    <?php } else { ?>
+          <div id="header" class="sixteen columns clearfix">
         <?php } ?>
         <?php
-            print "<a id='header-home-link' href='" . $front_page . "'><img src='/sites/all/themes/cuc7/images/head-logo.jpg'></a>";
+          if (!drupal_is_front_page()) {
+            print "<a id='header-home-link' href='" . $front_page . "'><img src='/sites/all/themes/cuc7/images/head-logo.png'></a>";
+          }
+          else {
+            $block = module_invoke( 'views', 'block_view', 'header_slideshow_images-block_1');
+            print render($block);
+          }
         ?>
             <div class="inner">
-    
                 <?php if ($logo): ?>
                   <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
                     <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
                   </a>
                 <?php endif; ?>
-                
                 <?php if ($site_name || $site_slogan): ?>
                 <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
                 
@@ -64,13 +68,11 @@
 
         <!----------------------------------------- #header-right -->
         <?php if ($page['header_right']) : ?>
-        <div id="header-right" class="eleven columns clearfix">
-        
-        	 <div class="inner">
-			<?php print render($page['header_right']); ?>
-        	</div>
-            
-        </div><!-- /#header-right -->
+          <div id="header-right" class="eleven columns clearfix">
+            <div class="inner">
+			        <?php print render($page['header_right']); ?>
+        	  </div>
+          </div><!-- /#header-right -->
         <?php endif; ?>
         
         <div class="clear"></div>
