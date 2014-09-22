@@ -11,7 +11,7 @@ body {
     font-size: 15px;
 }
 h1 {
-    color: #EA985A;
+    color: #C05504;
 }
 h2 {
 clear:both;
@@ -34,18 +34,75 @@ hr {
     border-width: 1px 0 0;
 }
 #header {
-    max-height: 157px;
+    margin-top: 0;
+    -webkit-box-shadow: 0 9px 13px -11px rgba(0,0,0,0.8);
+   	-moz-box-shadow: 0 9px 13px -11px rgba(0,0,0,0.8);
+    box-shadow: 0 9px 13px -11px rgba(0,0,0,0.8);
+}
+/**************  FlexSlider (slideshow) on Homepage */
+/*.view-header-slideshow-images .flexslider*/
+/*.flexslider .slides > li:last-child {display: block; -webkit-backface-visibility: visible;}*/
+.flexslider .slides .flex-active-slide {display: block; -webkit-backface-visibility: visible;}
+
+.view-id-header_slideshow_images .flexslider {
+    border:none;
+    margin-bottom: 0;
+}
+.views-field-field-text-for-image,
+.views-field-field-image-text {
+    position: absolute;
+    bottom: 35px;
+    right: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    background-color: white;
+    padding: 0 10px;
+}
+.flex-control-nav {
+    /*left: 420px;*/
+    color: white;
+    /*top: 130px;*/
+    z-index: 2;
+    bottom: 0;
+    text-align: right;
 }
 
+.flex-control-paging li a {
+    background: #FFF;
+    color: transparent;
+}
+.flex-control-paging li a.flex-active {
+    background: rgb(114, 28, 28);
+    cursor: default;
+}
+.transparent_class {  /* workarounds for opacity in various browsers */
+  /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=70);
+
+  /* Netscape */
+  -moz-opacity: 0.7;
+
+  /* Safari 1.x */
+  -khtml-opacity: 0.7;
+
+  /* Good browsers */
+  opacity: 0.7;
+}
 /*---------------------- Menus */
     /* Superfish menu tweaks */
-#navigation ul.sf-menu ul { overflow: visible !important;}      /* to get 3rd tier submenus to show using Superfish Module */
-.sf-sub-indicator {
-    height: 2px;  /* override def in superfish.css because of wrong offset when window resizes */
-}
 #navigation {
     margin-right: 0;
+    margin-top: 12px;
 }
+#navigation ul.sf-menu ul { overflow: visible !important;}      /* to get 3rd tier submenus to show using Superfish Module */
+.sf-sub-indicator {
+height: 2px;  /* override def in superfish.css because of wrong offset when window resizes */
+    }
 #superfish-1-select {display: none;} /* skeleton creates a select version of menu. Wd prob be better
                                         to suppress that, but this was quicker */
     /* ---------- superfish tweaks*/
@@ -87,6 +144,7 @@ hr {
 /* ---------  Social Buttons */
 #social {
     margin-left: 0;
+    margin-top: 10px;
     /*width: 80px;*/
     text-align: center;
     float: right;
@@ -151,6 +209,7 @@ hr {
     color:#000000;
     text-decoration: underline;
 }
+
 /*---- Miscellaneous -----*/
 .left-pic-border {
 float: left;
@@ -199,7 +258,6 @@ margin-right: 10px;
 .region-content ul {
     margin: 0 0;
 }
-
 ul li,
 ul li ul li {
     list-style-type: none;
@@ -246,29 +304,52 @@ a:link, a:visited {
     font-weight: bold;
     float: left;
 }
-div#minister-dre {
-    overflow: hidden;
-    border-top: 20px solid #aeaeae;
+
+/*div.page-section*/
+/*{*/
+    /*overflow: hidden;*/
+    /*border-top: 20px solid #aeaeae;*/
+/*}*/
+div.title {
+    background-color: #aeaeae;
 }
-div#minister-dre ul {
+.page-section h2 {
+    font-size: inherit;
+    letter-spacing: .03em;
+    padding-left: .7em;
+    background-color: #aeaeae;
+    border: none;
+}
+div.page-section ul
+ {
     list-style-type: none;
     margin-top: -1px;
     padding: 0;
 }
-div#minister-dre img {
+
+div.page-section img
+ {
     padding: 3px;
     border: 1px solid #aeaeae;
+}
+#music-adam li {
+    text-align: center;
+}
+.page-section #music-adam iframe {
+    padding: 10px;
 }
 /*-----------------------------------------------------------------------------------------------*/
 /* mobile browsers */
 @media only screen and (max-width: 767px) {
     #header {
-        background: #4b371f;
+        /*background: #4b371f;*/
         text-align: center;
         margin-top: 0;
-        height: 50px;
+        /*height: 55px;*/  /* iteration 1 */
+        /*height: 100px;      *//* iteration 2 */
+        top: -.5em;
     }
-    #site-name {
+        #site-name {
         visibility: visible;
         color: white;
         font-size: 2em;
@@ -277,5 +358,15 @@ div#minister-dre img {
     #header-top ul.menu li {
         padding: 2px 0;
     }
-
+    div.views-field-field-image-text {
+        /*display: none;*/
+        font-size: 10px;
+    }
+    .views-field-field-text-for-image,
+    .views-field-field-image-text {
+        bottom: 0px;
+    }
+    .flex-control-nav {
+        display: none;
+    }
 }
