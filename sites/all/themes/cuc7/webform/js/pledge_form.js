@@ -6,7 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 (function($) {
-
     $(window).load( function() {
         var fullName = document.getElementById( "edit-submitted-your-names");
         var formLastName = document.getElementById( "edit-submitted-lastname");
@@ -21,60 +20,68 @@
                 paymentOptions[i].attachEvent( 'onclick', calculate_payments);
             }
         }
-        else {
+        else {   // *********** NOT IE8 or below *************************
             fullName.addEventListener( 'change', function() { get_lastName( fullName, formLastName)});
-            for (var i=0; i<paymentOptions.length; i++) {  // attach event to each payment option element
+            for (var i=0; i<paymentOptions.length; i++) {  // attach event to each payment option radio
                 paymentOptions[i].addEventListener( 'click', calculate_payments);
             }
             $("#edit-submitted-total-pledge-amount").change( calculate_payments);
 
-            // Add element for numeric input error
+            // Create element for numeric input error
             $("<label />", {
-                class   : "lblNumbersOnly",
+                class   : "lblDollarError",
                 text    : ""
             }).appendTo( $("#webform-component-total-pledge-amount"));
 
-            // Check for numeric input only
-            $("#edit-submitted-total-pledge-amount").keypress( numeric_only(event))
+            // Check for numeric input
+            $("#edit-submitted-total-pledge-amount").keypress( function(e){
+                var nNumeric = $.fn.ForceNumericOnly( event, e.target.value );
+                switch (nNumeric) {
+                    case 0:
+                        $(".lblDollarError").text("Numbers Only Please");
+                        return false;
+//                    case -1:
+//                        $(".lblDollarError").text("Start with at least $1.00");
+//                        return false;
+                    default:
+                        $(".lblDollarError").text("");
+                        return true;
+                }
+            });
         }
     });
 
-    function numeric_only(event) {
-        var amt = $("#edit-submitted-total-pledge-amount").val();
-        event = (event) ? event : window.event;
-        var charCode = (event.which) ? event.which : event.keyCode;
-        if (charCode == 46) {
-            return true;
-        }
-        if (charCode < 48 || charCode > 57) {
-            $(".lblNumbersOnly").text('Numbers Only Please');
-            return false;
-        }
-        if (amt && (amt.toString().match(/\./g).length > 1)) {
-            $(".lblNumbersOnly").text('Too Many Decimals');
-            return false;
-        }
-        $(".lblNumbersOnly").text('');
-        return true;
-    };
-
     function calculate_payments() {
-        var totalPledge = $('#edit-submitted-total-pledge-amount').val();
-        totalPledge = (totalPledge > 0 ? totalPledge.replace(/\D/g, '') : 0);
+        if ($("#edit-submitted-total-pledge-amount").val() == '') {
+            $(".lblDollarError").text(" Please enter an amount to pledge")
+            $("#edit-submitted-total-pledge-amount").focus();
+            return false;
+        }
+        if (!($.fn.isValidDollarAmt( $("#edit-submitted-total-pledge-amount").val()))) {
+//        if (!checkDollarAmt( $("#edit-submitted-total-pledge-amount").val())) {
+            $(".lblDollarError").text("Either too many decimals or too many decimal places")
+            $("#edit-submitted-total-pledge-amount").focus();
+            return false;
+        }
+        else {$(".lblDollarError").text("");}
 
-        // for each radio button
+        var totalPledge = $('#edit-submitted-total-pledge-amount').val();
+        totalPledge = (totalPledge > 0 ? totalPledge : 0);
+
+        // for each radio button, clear the installment field and calculate anew for the selected one
         jQuery( "input[name='submitted[payments_will_be_made_as_follows]']").each( function() {
             $(this).siblings( '.calculatedPayment').remove();   // remove installment text field in case it already exists
             if (this.checked) {                                 // if active button
-                if ($(this).val() != 0) {                       // and if this is NOT the "Other" button...
-                    var amt = 0;
-                    var installment = "(Each payment: " + Math.round( totalPledge*100 / $(this).val()) / 100 + ")";
-                    $("<span />", {                             // create installment text field
+                if ($(this).val() != 0) {                       // and is NOT the "Other" button...
+                    var amt = 0;                                // then calculate the installment amount
+                    var installment = " (Each payment: $" + (Math.round( totalPledge*100 / $(this).val()) / 100).toFixed(2) + ")";
+                    // create installment text field
+                    $("<span />", {
                         class   : "calculatedPayment",
                         text    : installment
                     }).appendTo( $(this).parent());
                 }
-                else {                                          // if this IS the "Other" button, let user input amount
+                else {                                          // if this IS the "Other" button, let user input an amount
                     $("#edit-submitted-other").focus();
                 }
             }
