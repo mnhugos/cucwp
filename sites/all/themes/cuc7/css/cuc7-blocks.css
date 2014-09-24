@@ -28,6 +28,9 @@
     border: 1px solid #a8a8a8;
     padding: 3px;
 }
+.region-sidebar-second .block-webform .form-actions {
+    text-align: center;
+}
 /*-----------  Right Rail Blocks ---------------*/
 #sunday-schedule {
     text-align: center;
