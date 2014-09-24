@@ -6,12 +6,14 @@
  * Time: 3:03 PM
  */
 
-/* This preprocessor will allow Drupal to render ALL child items for all parent elements in the main menu
-   The default for Drupal is that it renders child elements only for the current page's menu item */
+
 function cuc7_preprocess_page( &$variables) {
+    // Allow Drupal to render ALL child items for all parent elements in the main menu
+    // The default for Drupal is that it renders child elements only for the current page's menu item */
     $main_menu_tree = menu_tree_all_data('main-menu');
     $variables['menu_expanded'] = menu_tree_output($main_menu_tree);
 
+    // Do processing based on if a form is currently being displayed
     if (isset ($variables['node'])){
       if ($variables['node']->nid == '432') {  // Pledge Form
         drupal_add_js(path_to_theme() . '/js/functions.js');
@@ -20,14 +22,16 @@ function cuc7_preprocess_page( &$variables) {
       }
       if ($variables['node']->nid == '437') {  // RE Registration Form
         drupal_add_library('system','ui.tabs');
-//        drupal_add_js( path_to_theme() . '/webform/js/re_registration_form.js');
-//        drupal_add_css( path_to_theme() . '/css/cuc7-webform-re-registration.css');
         drupal_add_js( path_to_theme() . '/webform/js/re_registration_form.js');
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-re-registration.css');
       }
-       if ($variables['node']->nid == '484') {  // RE Registration Form
+      if ($variables['node']->title == 'Journey Group Signup') {  // Journey Group Signup Form
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-journey-group-signup.css');
+
       }
+    }
+    if ($_SERVER['REQUEST_URI'] == '/journey-groups') {
+      $variables['theme_hook_suggestions'][] = 'page__journeygroups';
     }
 }
 
@@ -62,7 +66,7 @@ function cuc7_form_alter( &$form, &$form_state, $form_id) {
   // add custom class to the child info fieldsets, to be make them easier to identify for jQuery
   // Form_alter runs for ALL formS, so must check for which form is currently being processed.
   // NOTE: Possible to implement "hook_form_FORM_ID_alter" to create separate functions for specified forms, but won't yet...
-  if ($form_id == 'webform_client_form_437') {
+  if ($form['#node']->title == 'RE Registration') {
     for( $i=1; $i<5; $i++ ){
       if ($form['submitted']['childchildren_information']['child_'.$i]) {  // if this child exists
         $form['submitted']['childchildren_information']['child_'.$i]['#attributes']['class'][] = "re-child";
@@ -81,86 +85,6 @@ function cuc7_form_alter( &$form, &$form_state, $form_id) {
       $form['submitted']['parent_participation']['row_'.$i]['col_3']['#suffix'] =  "</div>";
     }
   }
-    // *****  J O U R N E Y   G R O U P   R E G I S T R A T I O N   F O R M  ******
-
-  if ($form_id == 'webform_client_form_484') {
-//    $form['submitted']['email']['#attributes']['class'][] = "one_fifth";
-//    $form['submitted']['telephone']['#attributes']['class'][] = "one_fifth";
-//    $form['submitted']['first_group_choice']['#attributes']['class'][] = "full-width";
-  }
-}
-
-// this theme function was copied from modules/contrib/webform/webform.module and overridden
-function cuc7_webform_element($variables) {
-  // Ensure defaults.
-  $variables['element'] += array(
-    '#title_display' => 'before',
-  );
-
-  $element = $variables['element'];
-
-  // All elements using this for display only are given the "display" type.
-  if (isset($element['#format']) && $element['#format'] == 'html') {
-    $type = 'display';
-  }
-  else {
-    $type = (isset($element['#type']) && !in_array($element['#type'], array('markup', 'textfield', 'webform_email', 'webform_number'))) ? $element['#type'] : $element['#webform_component']['type'];
-  }
-
-  // Convert the parents array into a string, excluding the "submitted" wrapper.
-  $nested_level = $element['#parents'][0] == 'submitted' ? 1 : 0;
-  $parents = str_replace('_', '-', implode('--', array_slice($element['#parents'], $nested_level)));
-
-  $wrapper_classes = array(
-   'form-item',
-   'webform-component',
-   'webform-component-' . $type,
-  );
-  if (($element['#webform_component']['nid'] == 484)  && (in_array( $element['#title'], array( 'Email', 'Telephone')))) {
-    $wrapper_classes[] = 'one_third';
-  }
-  if (($element['#webform_component']['nid'] == 484)  && (in_array( $element['#title'], array( 'First Group Choice')))) {
-    $wrapper_classes[] = 'full-width';
-  }
-  if (isset($element['#title_display']) && strcmp($element['#title_display'], 'inline') === 0) {
-    $wrapper_classes[] = 'webform-container-inline';
-  }
-  $output = '<div class="' . implode(' ', $wrapper_classes) . '" id="webform-component-' . $parents . '">' . "\n";
-
-  // If #title is not set, we don't display any label or required marker.
-  if (!isset($element['#title'])) {
-    $element['#title_display'] = 'none';
-  }
-  $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . _webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
-  $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . _webform_filter_xss($element['#field_suffix']) . '</span>' : '';
-
-  switch ($element['#title_display']) {
-    case 'inline':
-    case 'before':
-    case 'invisible':
-      $output .= ' ' . theme('form_element_label', $variables);
-      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
-      break;
-
-    case 'after':
-      $output .= ' ' . $prefix . $element['#children'] . $suffix;
-      $output .= ' ' . theme('form_element_label', $variables) . "\n";
-      break;
-
-    case 'none':
-    case 'attribute':
-      // Output no label and no required marker, only the children.
-      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
-      break;
-  }
-
-  if (!empty($element['#description'])) {
-    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
-  }
-
-  $output .= "</div>\n";
-
-  return $output;
 }
 
 function cuc7_preprocess_node( &$variables) {
@@ -192,4 +116,16 @@ function cuc7_field__body__photo_gallery( $variables) {
   $output = '<div class="' . $variables['classes'] . ' clearfix"' . $variables['attributes'] . '>' . $output . '</div>';
 
   return $output;
+}
+
+function cuc7_breadcrumb( $variables) {
+  $breadcrumb = $variables['breadcrumb'];
+  if (!empty($breadcrumb)) {
+    // Use CSS to hide titile .element-invisible.
+    $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+    // comment below line to hide current page to breadcrumb
+//	$breadcrumb[] = drupal_get_title();  // Don't want this for cuc7 theme
+    $output .= '<div class="breadcrumb">' . implode('<span class="sep">»</span>', $breadcrumb) . '</div>';
+    return $output;
+  }
 }

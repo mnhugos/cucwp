@@ -13,6 +13,9 @@ body {
 h1 {
     color: #C05504;
 }
+#main h1 {
+    text-align: center;
+}
 h2 {
 clear:both;
 font-size: 160%;
@@ -98,6 +101,7 @@ hr {
 #navigation {
     margin-right: 0;
     margin-top: 12px;
+    margin-bottom: 7px;
 }
 #navigation ul.sf-menu ul { overflow: visible !important;}      /* to get 3rd tier submenus to show using Superfish Module */
 .sf-sub-indicator {
@@ -136,6 +140,7 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
 #breadcrumb {
     background: none;
     border: none;
+    margin: 0 0 0em !important;
 }
 /* footer */
 .region-footer {
@@ -209,18 +214,22 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
     color:#000000;
     text-decoration: underline;
 }
-
+/*------  Right sidebars NOT on homepage -----*/
+.not-front .region-sidebar-second {
+    margin-top: 3em;
+}
 /*---- Miscellaneous -----*/
 .left-pic-border {
 float: left;
-border: medium solid #5294C1;
+/*border: medium solid #5294C1;*/
+border: medium solid darkgrey;
 padding: 6px;
 margin-top: 5px;
 margin-right: 10px;
 }
 .right-pic-border {
 	float: right;
-	border: medium solid #5294C1;
+	border: medium solid darkgrey;
 	padding: 6px;
 	margin:0em 0em 0em 2em;
 }
