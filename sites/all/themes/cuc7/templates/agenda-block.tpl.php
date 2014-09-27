@@ -17,8 +17,6 @@ $nolabel = array_map('trim', explode(',', $block->hide_labels));
 ?>
 
 <div>
-  <button id="say_it">Say "Hello!"</button>
-  <div id="hello" title="Hello  World!"><p>Hey, world, I just said "Hello!"</p></div>
   <strong>​For additional events and details, read our&nbsp;<a href="newsletters">MONTHLY NEWSLETTER</a></strong>
 </div>
 <hr />
