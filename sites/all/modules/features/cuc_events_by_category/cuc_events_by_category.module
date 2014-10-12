@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the CUC Events by Category feature.
+ */
+
+include_once 'cuc_events_by_category.features.inc';
