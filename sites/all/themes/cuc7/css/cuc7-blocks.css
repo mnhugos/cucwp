@@ -79,3 +79,28 @@ ul.sermon li.topic {
 #block-views-sermons-block-1 a:hover {
     text-decoration: underline;
 }
+/*----------------  Google Calendar Block*/
+/*  The view container's height needs to be increased so that if the "more" is opened for the bottom cell row, all items
+    will be viewed in that window.  Currently, the last row in that popup is hidden because the height does not allow it.*/
+#viewContainer1 {
+    height: 560px !important;
+}
+/*---------- Concert Series Block --------------------------------*/
+.upcoming-concerts,
+.recent-concerts {
+    border-top: solid 1em #EC9759;
+}
+.recent-concerts {
+    margin-top: 4em;
+}
+.upcoming-concerts .view-header,
+.recent-concerts .view-header {
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+}
+.recent-concerts span.views-field-title span{
+    color: #5294C1;
+    font-weight: bold;
+    font-size: larger;
+}
