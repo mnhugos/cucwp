@@ -124,7 +124,7 @@ ul.sermon li.topic img {
 .auction-ticket-info {
     width: 85%;
     margin: 0 auto;
-    text-size: 1.1em;
+    font-size: 1.1em;
 }
 .auction-ticket-info {
     margin-bottom: 2em;
@@ -145,4 +145,8 @@ ul.sermon li.topic img {
 }
 #webform-client-form-369 .form-actions {
     clear: both;
+}
+#block-webform-client-block-369,
+#block-webform-client-block-369 .form-submit {
+    color: #437489;
 }
