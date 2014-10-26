@@ -33,6 +33,9 @@ function cuc7_preprocess_page( &$variables) {
     if ($_SERVER['REQUEST_URI'] == '/journey-groups') {
       $variables['theme_hook_suggestions'][] = 'page__journeygroups';
     }
+    if ($_SERVER['REQUEST_URI'] == '/cucs-goods-services-auction') {
+      $variables['theme_hook_suggestions'][] = 'page__auction';
+    }
 }
 
 // Customize menu links for just the Main Menu
