@@ -65,12 +65,20 @@ li.cal_0 span::after {
     content: ":\00a0\00a0";
 }
 /*------------- Sunday Sermons Block ---------*/
+ul.sermon {
+    padding-left: 1.5em;
+}
 ul.sermon li.date,
 ul.sermon li.speaker {
     display: inline;
 }
 ul.sermon li.topic {
-    margin-left: 2em;
+    margin-left: 0;
+}
+ul.sermon li.topic img {
+    /*margin-left: 2em;*/
+    vertical-align: top;
+    /*padding-left: 2em;*/
 }
 /*------  Sermons listing page: reverse the normal link text underline behavior ------*/
 #block-views-sermons-block-1 a{
@@ -103,4 +111,38 @@ ul.sermon li.topic {
     color: #5294C1;
     font-weight: bold;
     font-size: larger;
+}
+/*--------------- Auction -----------------------*/
+
+.auction-slogan {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    color: #437489;
+    font-style: italic;
+}
+.auction-ticket-info {
+    width: 85%;
+    margin: 0 auto;
+    text-size: 1.1em;
+}
+.auction-ticket-info {
+    margin-bottom: 2em;
+}
+.auction-ticket-info p {
+    margin: 0 0 5px 0;
+}
+#webform-client-form-369 #webform-component-estimated-value,
+#webform-client-form-369 #webform-component-phone {
+    margin-right: 12px;
+}
+#webform-client-form-369 #webform-component-estimated-value,
+#webform-client-form-369 #webform-component-donors-name,
+#webform-client-form-369 #webform-component-address,
+#webform-client-form-369 #webform-component-phone,
+#webform-client-form-369 #webform-component-e-mail {
+    float: left;
+}
+#webform-client-form-369 .form-actions {
+    clear: both;
 }
