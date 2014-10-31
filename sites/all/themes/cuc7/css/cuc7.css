@@ -17,18 +17,21 @@ h1 {
     text-align: center;
 }
 h2 {
-clear:both;
-font-size: 160%;
-line-height: 130%;
-border-bottom: #5294C1 solid 1px;
-text-align: left;
+    clear:both;
+    font-size: 160%;
+    line-height: 130%;
+    border-bottom: #5294C1 solid 1px;
+    text-align: left;
 }
 h3 {
-font-size: 120%;
-color: #5294C1;
-font-weight: bold;
-text-align: left;
-margin-bottom: .5em;
+    font-size: 120%;
+    color: #5294C1;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: .5em;
+}
+h4 {
+    margin-bottom: 2px;
 }
 hr {
     clear: both;
@@ -271,6 +274,9 @@ ul li,
 ul li ul li {
     list-style-type: none;
 }
+ul.points li{
+    list-style-type: inherit
+}
 .contact-staff ul li ul {
     margin: 0 0 5px;
 }
@@ -313,7 +319,10 @@ a:link, a:visited {
     font-weight: bold;
     float: left;
 }
-
+.h2-section {
+    clear:both;
+    padding-top: 1em;
+}
 /*div.page-section*/
 /*{*/
     /*overflow: hidden;*/

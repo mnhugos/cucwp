@@ -66,7 +66,7 @@ li.cal_0 span::after {
 }
 /*------------- Sunday Sermons Block ---------*/
 ul.sermon {
-    padding-left: 1.5em;
+    padding-left: 0;
 }
 ul.sermon li.date,
 ul.sermon li.speaker {

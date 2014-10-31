@@ -41,7 +41,8 @@ function upcoming_sermons_block_view( $delta = '')
 }
 
 /*****************************************
- *
+ *  Retrieve upcoming sermons as defined in the VIEW (**NOTE:  this means changes may need to occur via the admin panel for this view)
+ *  Then lay it out within the block
  *****************************************/
 function upcoming_sermons_block_render() {
   $view = views_get_view( 'upcoming_sermons');
@@ -67,6 +68,7 @@ function upcoming_sermons_block_render() {
       /* 3rd or 5th Sunday */
         case 2:
         case 4:
+          $html .= '</br>';
           $html .= upcoming_sermons_render_sermon( $data);
           $html .= '</ul></div>';
           break;
@@ -82,9 +84,17 @@ function upcoming_sermons_block_render() {
 }
 
 function upcoming_sermons_render_sermon( &$data) {
-  $html = '';
-  $html .= '<li class="date"><strong>' . $data->field_field_sunday_date[0]['rendered']['#markup'] . ':&nbsp;&nbsp;</strong></li>';
-  $html .= '<li class="speaker"><strong>' . $data->field_field_speaker[0]['rendered']['#markup'] . '</strong></li>';
-  $html .= '<li class="topic">' . $data->field_field_sermon_title_as_title[0]['rendered']['#markup'] . '</li>';
+//  $pic_info['item'] = $data->field_field_picture[0]['rendered']['#item'];
+//  $pic_info['image_style'] = $data->field_field_picture[0]['rendered']['#image_style'];
+//  $pic_info['path'] = $data->field_field_picture[0]['rendered']['#path'];
+  $title = $data->_field_data['nid']['entity']->title;
+  $html = '<ul class>';
+  $html .= '<li class="date"><h4>' . $data->field_field_sunday_date[0]['rendered']['#markup'] . ':&nbsp;&nbsp;' . $data->field_field_speaker[0]['rendered']['#markup'] . '</h4></li>';
+//  $html .= '<li class="speaker"><h4>' . $data->field_field_speaker[0]['rendered']['#markup'] . '</h4></li>';
+//  $html .= '<li class="pic">' . theme_image_formatter( $pic_info) . '</li>';
+  $html .= '<li class="topic"><span style="font-style:italic;font-weight:bold;">' . $title . '</span>: ' . $data->field_field_sermon_short_description[0]['rendered']['#markup'] . '</li>';
+//  $html .= '<li class="desc">' . $data->field_body[0]['rendered']['#markup'] . '</li>';
+//  $html .= '<li class="pic">' . theme_image_formatter( $data->field_field_picture[0]['rendered']) . '</li>';
+  $html .= '</ul>';
   return $html;
 }
