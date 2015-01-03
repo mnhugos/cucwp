@@ -1,0 +1,9 @@
+; $Id$
+;Created By: Margaret Hugos-Gold
+;Inital Creation Date: 12/29/2014
+
+name = Are You a UU
+description = "Controls display of the 'Are You a UU?' block"
+version = 7.x-1.1
+core = 7.x
+package = CUC

@@ -1,0 +1,26 @@
+.block-ruauu {
+    margin-bottom: 2em;
+}
+.block-ruauu h2 {
+    border-bottom: none;
+    /*text-align: center;*/
+    /*background-color: #e2e2e2;*/
+    /*padding-left: .7em;*/
+    font-family: sans-serif, serif;
+    font-weight: 700;
+    font-size: 1.4em !important;
+    cursor: pointer;
+    color: #0D559B;
+    text-decoration: underline;
+}
+.questions {
+    display: none;
+    color: #0D559B;
+}
+.block-ruauu ul {
+
+}
+.block-ruauu ul li{
+    font-size: 1em;
+    list-style-type: disc;
+}
