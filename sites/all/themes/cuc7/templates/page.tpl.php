@@ -237,6 +237,7 @@
                     <?php
                       print ('All Rights Reserved');
                     ?>
+                    <p>Created by Eridan Web Consulting</p>
                 </div>
         	</div>
         </div>
