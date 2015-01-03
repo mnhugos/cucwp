@@ -217,6 +217,17 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
     color:#000000;
     text-decoration: underline;
 }
+#home-content-top {
+    position:relative;
+}
+.front #home_chalice {
+    position: absolute;
+    float: left;
+    top: 17px;
+}
+.front #title {
+    float: right;
+}
 /*------  Right sidebars NOT on homepage -----*/
 .not-front .region-sidebar-second {
     margin-top: 3em;
@@ -299,6 +310,8 @@ ul.points li{
 }
 #mission > p {
     background-color: #e2e2e2;
+    padding-left: .7em;
+    font-weight: 700;
 }
 #teaser-photo {
     height: 160px;
