@@ -8,8 +8,12 @@
 (function ($) {
   Drupal.behaviors.ruauu = {
     attach: function (context, settings) {
+//      var options = {
+//          'easing': swing
+//      }
+
       $('.block-ruauu').find('h2').click( function () {
-          $('.questions').toggle();
+          $('.questions').slideToggle( "slow");
       });
     }
   };
