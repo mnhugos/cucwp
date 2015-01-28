@@ -1,0 +1,9 @@
+; $Id$
+;Created By: Margaret Hugos-Gold
+;Inital Creation Date: 1/28/2015
+
+name = Login
+description = "Manages login functionality for users"
+version = 7.x-1.1
+core = 7.x
+package = CUC

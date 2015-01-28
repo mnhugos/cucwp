@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implementation hook_menu_alter().
+ *
+ *
+ */
+
+/*****************************************
+ *
+ *****************************************/
+
+function login_menu_alter (&$items) {
+  // this disables the "create new password" functionality
+  $items['user/password']['access callback'] = FALSE;
+}
