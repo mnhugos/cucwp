@@ -1,0 +1,16 @@
+name = ruauu_and_login
+description = This includes the two new modules for RUAUU and User Login
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = fe_block
+dependencies[] = ruauu
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[fe_block_boxes][] = homepage_main_block
+features[fe_block_boxes][] = ministers
+features[fe_block_settings][] = block-homepage_main_block
+features[fe_block_settings][] = block-ministers
+features[fe_block_settings][] = ruauu-ruauu
+features[features_api][] = api:2
+features[variable][] = block_ruauu_body

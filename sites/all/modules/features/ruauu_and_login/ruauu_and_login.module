@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ruauu_and_login feature.
+ */
+
+include_once 'ruauu_and_login.features.inc';
