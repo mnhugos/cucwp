@@ -221,9 +221,11 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
     position:relative;
 }
 .front #home_chalice {
-    position: absolute;
+    /*position: absolute;*/
     float: left;
-    top: 17px;
+    top: 1.5em;
+    margin-bottom: 1em;
+    padding-right: 1em;
 }
 .front #title {
     float: right;
