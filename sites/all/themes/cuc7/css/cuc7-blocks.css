@@ -1,3 +1,6 @@
+#sidebar-first .block, #sidebar-second .block {
+    padding: 0 0 18px 0;
+}
 /* Homepage Right rail sidebar blocks */
 .region-sidebar-second .block ul {
     margin: 0;
