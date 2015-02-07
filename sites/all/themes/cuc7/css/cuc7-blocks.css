@@ -43,6 +43,9 @@
     margin-bottom: .5em;
 }
 /*---- Agenda in Right Rail -----*/
+.block .agenda-block ol li .calendar_title {
+    cursor: auto;
+}
 .agenda-block p {
     font-weight: bold;
     /*background-color: #b0c4de;*/
