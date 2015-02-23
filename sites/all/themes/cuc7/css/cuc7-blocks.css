@@ -156,3 +156,9 @@ ul.sermon li.topic img {
 #block-webform-client-block-369 .form-submit {
     color: #437489;
 }
+#testimonial {
+    text-align:center;
+    background-color: #98B4C8;
+    padding: 2em;
+    overflow: hidden;
+}
