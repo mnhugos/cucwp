@@ -38,21 +38,22 @@ function cuc7_preprocess_page( &$variables) {
     }
 }
 
-// Customize menu links for just the Main Menu
+//  Customize menu links for just the Main Menu
 //  This hook will be called for each Main Menu item and will iteratively be called for each sub-menu item
-function cuc7_menu_link__main_menu( $variables)
-{
-    $element    = $variables['element'];
-    $sub_menu   = '';
-
-    if ($element['#below']) {
-        $sub_menu = drupal_render($element['#below']);   // rendering will also call this function, fyi
-    }
-
-    $link = l($element['#title'], $element['#href']);
-    $link_text = '<li' . drupal_attributes($element['#attributes']) . '>' . $link . $sub_menu . "</li>";
-    return $link_text;
-}
+//function cuc7_menu_link__main_menu( $variables)
+////function cuc7_menu_link( $variables)
+//{
+//    $element    = $variables['element'];
+//    $sub_menu   = '';
+//
+//    if ($element['#below']) {
+//        $sub_menu = drupal_render($element['#below']);   // rendering will also call this function, fyi
+//    }
+//
+//    $link = l($element['#title'], $element['#href']);
+//    $link_text = '<li' . drupal_attributes($element['#attributes']) . '>' . $link . $sub_menu . "</li>";
+//    return $link_text;
+//}
 
 /**
  * Implements hook_form_alter.
@@ -69,7 +70,8 @@ function cuc7_form_alter( &$form, &$form_state, $form_id) {
   // add custom class to the child info fieldsets, to be make them easier to identify for jQuery
   // Form_alter runs for ALL formS, so must check for which form is currently being processed.
   // NOTE: Possible to implement "hook_form_FORM_ID_alter" to create separate functions for specified forms, but won't yet...
-  if ($form['#node']->title == 'RE Registration') {
+  $arTitles = array('Religious Education Registration', 'RE Registration');
+  if (in_array( $form['#node']->title, $arTitles)) {
     for( $i=1; $i<5; $i++ ){
       if ($form['submitted']['childchildren_information']['child_'.$i]) {  // if this child exists
         $form['submitted']['childchildren_information']['child_'.$i]['#attributes']['class'][] = "re-child";
