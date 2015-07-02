@@ -17,7 +17,9 @@ function upcoming_sermons_block_info()
 //  $blocks = array();
   $blocks = array(
     'upcoming_sermons' => array(
-      'info' => t('Upcoming Sermons'),
+      'info' => t('Upcoming Sermons')),
+    'upcoming_sermons_summer' => array(
+      'info' => t('Upcoming Sermons for Summer')
     )
   );
 
@@ -44,7 +46,7 @@ function upcoming_sermons_block_view( $delta = '')
  *  Retrieve upcoming sermons as defined in the VIEW (**NOTE:  this means changes may need to occur via the admin panel for this view)
  *  Then lay it out within the block
  *****************************************/
-function upcoming_sermons_block_render() {
+function upcoming_sermons_block_render( $delta) {
   $view = views_get_view( 'upcoming_sermons');
   $view->set_display( 'Block');
   $view->pre_execute( array());
@@ -59,24 +61,29 @@ function upcoming_sermons_block_render() {
           $html = '<h3>This Sunday</h3>' . '<ul class="sermon">' . upcoming_sermons_render_sermon( $data) . '</ul>';
           break;
 
-      /* 2nd Sunday */
+      /* 2nd Sunday.  Column 1 */
       case 1:
-          $html .= '<h3>Upcoming Sundays</h3><div class="one_half"><ul class="sermon">' . upcoming_sermons_render_sermon( $data);
-          $html .= ($total_rows == $index+1) ? '</ul></div>' : '';   /* close tags if this is the last row */
+          $html .= '<h3>Upcoming Sundays</h3><div class="one_half">' . upcoming_sermons_render_sermon( $data);
+          $html .= '</div>';
           break;
 
-      /* 3rd or 5th Sunday */
+      /*  2nd column of Sundays */
         case 2:
         case 4:
-          $html .= '</br>';
-          $html .= upcoming_sermons_render_sermon( $data);
-          $html .= '</ul></div>';
+        case 6:
+        case 8:
+          $html .= '<div class="one_half">' . upcoming_sermons_render_sermon( $data);
+          $html .= '</div>';
           break;
 
-      /*  4th Sunday */
+      /* 1st column of Sundays */
         case 3:
-          $html .= '<div class="one_half"><ul class="sermon">' . upcoming_sermons_render_sermon( $data);
-          $html .= ($total_rows == $index+1) ? '</ul></div>' : '';   /* close tags if this is the last row */
+        case 5:
+        case 7:
+        case 9:
+          $html .= '<div class="one_half" style="clear:both">';
+          $html .= upcoming_sermons_render_sermon( $data);
+          $html .= '</div>';
           break;
     }
   }
@@ -84,17 +91,10 @@ function upcoming_sermons_block_render() {
 }
 
 function upcoming_sermons_render_sermon( &$data) {
-//  $pic_info['item'] = $data->field_field_picture[0]['rendered']['#item'];
-//  $pic_info['image_style'] = $data->field_field_picture[0]['rendered']['#image_style'];
-//  $pic_info['path'] = $data->field_field_picture[0]['rendered']['#path'];
   $title = $data->_field_data['nid']['entity']->title;
   $html = '<ul class>';
   $html .= '<li class="date"><h4>' . $data->field_field_sunday_date[0]['rendered']['#markup'] . ':&nbsp;&nbsp;' . $data->field_field_speaker[0]['rendered']['#markup'] . '</h4></li>';
-//  $html .= '<li class="speaker"><h4>' . $data->field_field_speaker[0]['rendered']['#markup'] . '</h4></li>';
-//  $html .= '<li class="pic">' . theme_image_formatter( $pic_info) . '</li>';
   $html .= '<li class="topic"><span style="font-style:italic;font-weight:bold;">' . $title . '</span>: ' . $data->field_field_sermon_short_description[0]['rendered']['#markup'] . '</li>';
-//  $html .= '<li class="desc">' . $data->field_body[0]['rendered']['#markup'] . '</li>';
-//  $html .= '<li class="pic">' . theme_image_formatter( $data->field_field_picture[0]['rendered']) . '</li>';
   $html .= '</ul>';
   return $html;
 }
