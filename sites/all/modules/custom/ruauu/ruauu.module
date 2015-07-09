@@ -34,9 +34,6 @@ function ruauu_block_info()
 function ruauu_block_configure( $delta = '')
 {
   if ($delta == 'ruauu') {
-    // All we need to provide is the specific configuration options for our
-    // block. Drupal will take care of the standard block configuration options
-    // (block title, page visibility, etc.) and the save button.
     $db_value = variable_get( 'block_ruauu_body', array('value' => '', 'format' => NULL));
     $form['block_ruauu_body'] = array(
       '#type' => 'text_format',
@@ -55,10 +52,9 @@ function ruauu_block_configure( $delta = '')
 * provided by this module are saved.
 *****************************************/
 function ruauu_block_save( $delta = '', $edit = array()) {
-  // We need to save settings from the configuration form.
   // We need to check $delta to make sure we are saving the right block.
   if ($delta == 'ruauu') {
-    // Have Drupal save the string to the database.
+    // save string from the admin UI to the database.
     variable_set( 'block_ruauu_body', $edit['block_ruauu_body']);
   }
 }
@@ -88,13 +84,10 @@ function ruauu_block_view( $delta = '')
 function ruauu_block_render( $delta = '') {
   switch ($delta) {
     case 'ruauu':
-//      $ruauu_block = block_load( 'block', 'ruauu');
-      // Block content can be returned in two formats: renderable arrays
-      // (as here) are preferred though a simple string will work as well.
-      // Block content created through the UI defaults to a string.
+      // Block content can be returned in two formats: renderable arrays, and strings
+      // This block content is created through the UI, so it defaults to a string.
       $db_value = variable_get( 'block_ruauu_body', array('value' => '', 'format' => NULL));
 
-//      return $html . $db_value['value'] . '</div>';
       return $db_value['value'];
   }
 }
