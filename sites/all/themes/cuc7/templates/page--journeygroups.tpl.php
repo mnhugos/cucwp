@@ -120,7 +120,7 @@
 
         <!---- Set width of Main Content DIV -->
         <?php if ($page['sidebar_second']) { // page has right sidebar...?>
-          <div id="content" class="nine columns">
+          <div id="content" class="eight columns">
 		    <?php } else {  // page has no sidebars... ?>
           <div id="content" class="sixteen columns clearfix">
         <?php } ?>
@@ -177,7 +177,7 @@
         <!------------------------------------------ #sidebar-second -->
         <?php if ($page['sidebar_second']): ?>
         <!-- #sidebar-second -->
-        <div id="sidebar-second" class="seven columns">
+        <div id="sidebar-second" class="eight columns">
             <?php print render($page['sidebar_second']); ?>
         </div><!-- /#sidebar-second -->
         <?php endif; ?>
