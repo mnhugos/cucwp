@@ -403,3 +403,20 @@ div.page-section img
         display: none;
     }
 }
+.sunday-hours {
+    margin-bottom: 1em;
+    background-color: #FAEBD7;  /* antiquewhite; */
+    padding: 1em 1em .5em;
+}
+.quote {
+    padding: .2em .25em .15em;
+    border: solid 0.08em #eeeeee;
+    border-radius: .1em;
+}
+ul#new-noteworthy {
+    text-align: center;
+}
+#new-noteworthy a {
+    font-size: 15px;
+    color: rgb(46, 39, 120);
+}

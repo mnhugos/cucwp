@@ -33,7 +33,7 @@
         <?php } ?>
         <?php
           if (!drupal_is_front_page()) {
-            print "<a id='header-home-link' href='" . $front_page . "'><img src='/sites/all/themes/cuc7/images/head-logo.png'></a>";
+            print "<a id='header-home-link' href='" . $front_page . "'><img src='/sites/all/themes/cuc7/images/head-logo-cuuc.png'></a>";
           }
           else {
             $block = module_invoke( 'views', 'block_view', 'header_slideshow_images-block_1');
