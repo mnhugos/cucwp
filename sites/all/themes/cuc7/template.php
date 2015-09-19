@@ -68,11 +68,11 @@ function cuc7_form_alter( &$form, &$form_state, $form_id) {
   // *****  R E   R E G I S T R A T I O N   F O R M  ******
   // form_id = 'webform_client_form_437'
   // add custom class to the child info fieldsets, to be make them easier to identify for jQuery
-  // Form_alter runs for ALL formS, so must check for which form is currently being processed.
+  // Form_alter runs for ALL forms, so must check which form is currently being processed.
   // NOTE: Possible to implement "hook_form_FORM_ID_alter" to create separate functions for specified forms, but won't yet...
   $arTitles = array('Religious Education Registration', 'RE Registration');
-  if (in_array( $form['#node']->title, $arTitles)) {
-    for( $i=1; $i<5; $i++ ){
+  if (in_array( $form['#node']->title, $arTitles)) {      // currently processing RE Registration form
+    for( $i=1; $i<5; $i++ ){                              // 4 is the max number of children a parent can register on the form
       if ($form['submitted']['childchildren_information']['child_'.$i]) {  // if this child exists
         $form['submitted']['childchildren_information']['child_'.$i]['#attributes']['class'][] = "re-child";
       }
@@ -80,15 +80,18 @@ function cuc7_form_alter( &$form, &$form_state, $form_id) {
         $i = 5;
       }
     }
-    // check Volunteer rows and add a class
-    for( $i=1; $i<7; $i++ ){
-      $form['submitted']['parent_participation']['row_'.$i]['col_1']['#prefix'] =  "<div class=\"option-rating\">";
-      $form['submitted']['parent_participation']['row_'.$i]['col_1']['#suffix'] =  "</div>";
-      $form['submitted']['parent_participation']['row_'.$i]['col_2']['#prefix'] =  "<div class=\"option-rating\">";
-      $form['submitted']['parent_participation']['row_'.$i]['col_2']['#suffix'] =  "</div>";
-      $form['submitted']['parent_participation']['row_'.$i]['col_3']['#prefix'] =  "<div class=\"option-desc\">";
-      $form['submitted']['parent_participation']['row_'.$i]['col_3']['#suffix'] =  "</div>";
+    // check just the VOLUNTEER rows and add a div with class
+    foreach ($form['submitted']['parent_participation'] as $key => $value) {  // each volunteer item
+      if (substr( $key, 0, 4) == "row_") {
+        $form['submitted']['parent_participation'][$key]['col_1']['#prefix'] =  "<div class=\"option-rating\">";
+        $form['submitted']['parent_participation'][$key]['col_1']['#suffix'] =  "</div>";
+        $form['submitted']['parent_participation'][$key]['col_2']['#prefix'] =  "<div class=\"option-rating\">";
+        $form['submitted']['parent_participation'][$key]['col_2']['#suffix'] =  "</div>";
+        $form['submitted']['parent_participation'][$key]['col_3']['#prefix'] =  "<div class=\"option-desc\">";
+        $form['submitted']['parent_participation'][$key]['col_3']['#suffix'] =  "</div>";
+      }
     }
+
   }
 }
 
