@@ -9,10 +9,10 @@ legend {
 .heading {
     font-weight: bold;
 }
-#webform-client-form-437 label {
+#webform-client-form-588 label {
     font-size: 0.959em;
 }
-#webform-client-form-437 #edit-actions {
+#webform-client-form-588 #edit-actions {
     font-size: 1.5em;
 }
 fieldset[id^='webform-component-parentguardian'],
@@ -20,16 +20,16 @@ fieldset#webform-component-parent-participation{
     background: #fff url(images/gradient-inner.png) repeat-x 0 0;
 }
 /*******************************   Parent Info  *****************************/
-#webform-client-form-437 #webform-component-first-name-1 label,
-#webform-client-form-437 #webform-component-last-name-1 label,
-#webform-client-form-437 #webform-component-street-1-1 label,
-#webform-client-form-437 #webform-component-street-2-1 label {
+#webform-client-form-588 #webform-component-first-name-1 label,
+#webform-client-form-588 #webform-component-last-name-1 label,
+#webform-client-form-588 #webform-component-street-1-1 label,
+#webform-client-form-588 #webform-component-street-2-1 label {
     width:95px;
     float:left;
 }
 
-#webform-client-form-437 #webform-component-street-1-1 input,
-#webform-client-form-437 #webform-component-street-2-1 input {
+#webform-client-form-588 #webform-component-street-1-1 input,
+#webform-client-form-588 #webform-component-street-2-1 input {
     /*float:right;*/
     /*padding-bottom: 23px;*/
 }
@@ -51,51 +51,51 @@ fieldset#webform-component-parentguardian-2 {
     margin-left: 24px;
 }
 
-/*#webform-client-form-437 #webform-component-parentguardian-1 legend,*/
-/*#webform-client-form-437 #webform-component-parentguardian-2 legend {*/
+/*#webform-client-form-588 #webform-component-parentguardian-1 legend,*/
+/*#webform-client-form-588 #webform-component-parentguardian-2 legend {*/
     /*font-size: 12px;*/
 /*}*/
 
-#webform-client-form-437 #webform-component-state-1,
-#webform-client-form-437 #webform-component-state-2 {
+#webform-client-form-588 #webform-component-state-1,
+#webform-client-form-588 #webform-component-state-2 {
     margin-left: 0px;
 }
 
-#webform-client-form-437 #webform-component-parentguardian-1--city-1,
-#webform-client-form-437 #webform-component-parentguardian-1--state-1,
-#webform-client-form-437 #webform-component-parentguardian-1--zip-1,
-#webform-client-form-437 #webform-component-parentguardian-2--city-1,
-#webform-client-form-437 #webform-component-parentguardian-2--state-1,
-#webform-client-form-437 #webform-component-parentguardian-2--zip-1 {
+#webform-client-form-588 #webform-component-parentguardian-1--city-1,
+#webform-client-form-588 #webform-component-parentguardian-1--state-1,
+#webform-client-form-588 #webform-component-parentguardian-1--zip-1,
+#webform-client-form-588 #webform-component-parentguardian-2--city-1,
+#webform-client-form-588 #webform-component-parentguardian-2--state-1,
+#webform-client-form-588 #webform-component-parentguardian-2--zip-1 {
     float: left;
     margin-right: 5px;
 }
 
-#webform-client-form-437 #webform-component-parentguardian-1--home-phone-1,
-#webform-client-form-437 #webform-component-parentguardian-2--home-phone-1 {
+#webform-client-form-588 #webform-component-parentguardian-1--home-phone-1,
+#webform-client-form-588 #webform-component-parentguardian-2--home-phone-1 {
     clear: both;
 }
 
 
-#webform-client-form-437 #webform-component-parentguardian-1--home-phone-1,
-#webform-client-form-437 #webform-component-parentguardian-1--cell-phone-1,
-#webform-client-form-437 #webform-component-parentguardian-2--home-phone-1,
-#webform-client-form-437 #webform-component-parentguardian-2--cell-phone-1 {
+#webform-client-form-588 #webform-component-parentguardian-1--home-phone-1,
+#webform-client-form-588 #webform-component-parentguardian-1--cell-phone-1,
+#webform-client-form-588 #webform-component-parentguardian-2--home-phone-1,
+#webform-client-form-588 #webform-component-parentguardian-2--cell-phone-1 {
     /*width: 110px;*/
     float: left;
     margin-right: 10px;
     /*margin-top: -15px;*/
 }
 
-#webform-client-form-437 #webform-component-parentguardian-1--email-1,
-#webform-client-form-437 #webform-component-parentguardian-2--email-1,
-#webform-client-form-437 #webform-component-parentguardian-1--email-1 {
+#webform-client-form-588 #webform-component-parentguardian-1--email-1,
+#webform-client-form-588 #webform-component-parentguardian-2--email-1,
+#webform-client-form-588 #webform-component-parentguardian-1--email-1 {
     clear:both;
 }
-#webform-client-form-437 #webform-component-parentguardian-1--email-1 p,
-#webform-client-form-437 #webform-component-parentguardian-2--email-1 p,
-#webform-client-form-437 #webform-component-medical-1 p,
-#webform-client-form-437 #webform-component-additional-1 p {
+#webform-client-form-588 #webform-component-parentguardian-1--email-1 p,
+#webform-client-form-588 #webform-component-parentguardian-2--email-1 p,
+#webform-client-form-588 #webform-component-medical-1 p,
+#webform-client-form-588 #webform-component-additional-1 p {
     margin-top: .2em;
     font-size: 11px;
 }
@@ -113,7 +113,7 @@ fieldset#webform-component-childchildren-information > div.fieldset-wrapper {
     position: relative;
     top: -10px;
 }
-#webform-client-form-437,
+#webform-client-form-588,
 .ui-tabs-panel {
     font: 11px Verdana, sans-serif;
 }
@@ -287,29 +287,29 @@ g#webform-component-parent-participation .option-rating input,
     top: 0px;
 }
 
-#webform-client-form-437 #webform-component-day-1 label,
-#webform-client-form-437 #webform-component-year-1 label {
+#webform-client-form-588 #webform-component-day-1 label,
+#webform-client-form-588 #webform-component-year-1 label {
     display:none;
     /*float:left;*/
 }
 
-#webform-client-form-437 #webform-component-new-to-cuc-1  {
+#webform-client-form-588 #webform-component-new-to-cuc-1  {
     width: 265px;
     float: left;
 }
 
-#webform-client-form-437 #webform-component-changed-info-1  {
+#webform-client-form-588 #webform-component-changed-info-1  {
     width: 445px;
     float: left;
 }
 
-#webform-client-form-437 #webform-component-day-1 .field-prefix,
-#webform-client-form-437 #webform-component-year-1 .field-prefix {
+#webform-client-form-588 #webform-component-day-1 .field-prefix,
+#webform-client-form-588 #webform-component-year-1 .field-prefix {
     width:20px;
     float:left;
 }
 
-#webform-client-form-437 #webform-component-day-1 input {
+#webform-client-form-588 #webform-component-day-1 input {
     width:20px;
     float:left;
 }
@@ -343,8 +343,8 @@ fieldset#webform-component-parent-participation .option-rating label
 #webform-component-parent-participation #webform-component-row-2 #webform-component-col-2 label{
     display:none;
 }
-#webform-client-form-437 #webform-component-new-to-cuc-1 label,
-#webform-client-form-437 #webform-component-changed-info-1 label,
+#webform-client-form-588 #webform-component-new-to-cuc-1 label,
+#webform-client-form-588 #webform-component-changed-info-1 label,
 #webform-component-parent-participation div#webform-component-parent-participation--speak-with label,
 div#edit-submitted-parent-participation-row-4-col-3-choose {
     float:left;
@@ -354,4 +354,13 @@ div#edit-submitted-parent-participation-row-4-col-3-choose {
 }
 fieldset#webform-component-parent-participation-row-2-col-3 {
     height: 90px;
+}
+div#webform-component-childchildren-information--photo-opt-out {
+    margin: 0 2em 2em;
+}
+div#webform-component-childchildren-information--opt-out-text {
+    margin: 0 3em;
+}
+#webform-client-form-588 label {
+    font-weight: bold;
 }
