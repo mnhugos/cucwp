@@ -71,8 +71,27 @@ fieldset#webform-component-parentguardian-2 {
     margin-right: 5px;
 }
 
+#webform-client-form-588 #webform-component-in-case-of-emergency--contact-name,
+#webform-client-form-588 #webform-component-in-case-of-emergency--relationship,
+#webform-client-form-588 #webform-component-in-case-of-emergency--phone,
+#webform-component-childchildren-information--child-1--insurance-company-1,
+#webform-component-childchildren-information--child-2--insurance-company-2,
+#webform-component-childchildren-information--child-3--insurance-company-3,
+#webform-component-childchildren-information--child-4--insurance-company-4,
+#webform-component-childchildren-information--child-1--policy-number-1,
+#webform-component-childchildren-information--child-2--policy-number-2,
+#webform-component-childchildren-information--child-3--policy-number-3,
+#webform-component-childchildren-information--child-4--policy-number-4 {
+    float: left;
+    margin-right: 5px;
+}
+
 #webform-client-form-588 #webform-component-parentguardian-1--home-phone-1,
-#webform-client-form-588 #webform-component-parentguardian-2--home-phone-1 {
+#webform-client-form-588 #webform-component-parentguardian-2--home-phone-1,
+#webform-component-childchildren-information--child-1--additional-1,
+#webform-component-childchildren-information--child-2--additional-1,
+#webform-component-childchildren-information--child-3--additional-1,
+#webform-component-childchildren-information--child-4--additional-1 {
     clear: both;
 }
 
@@ -115,7 +134,7 @@ fieldset#webform-component-childchildren-information > div.fieldset-wrapper {
 }
 #webform-client-form-588,
 .ui-tabs-panel {
-    font: 11px Verdana, sans-serif;
+    font: 12px Verdana, sans-serif;
 }
 
 .ui-tabs .ui-tabs-panel {
