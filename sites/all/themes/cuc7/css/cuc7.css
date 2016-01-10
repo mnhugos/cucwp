@@ -33,6 +33,9 @@ h3 {
 h4 {
     margin-bottom: 2px;
 }
+h1, h2, h3 {
+    font-family: candara;
+}
 hr {
     clear: both;
     margin: 10px 0 10px;
@@ -127,6 +130,9 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
 #navigation ul.sf-menu li:hover ul
 {
     top: 25px;
+}
+.block ul.menu li a:hover {
+    color: #EC985A;
 }
 /*#navigation ul, #navigation ul.sf-menu { width: inherit;}*/
 #block-menu-menu-tertiary-menu ul li a {
@@ -223,7 +229,7 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
 .front #home_chalice {
     /*position: absolute;*/
     float: left;
-    top: 1.5em;
+    top: 1em;
     margin-bottom: 1em;
     padding-right: 1em;
 }
@@ -420,3 +426,4 @@ ul#new-noteworthy {
     font-size: 15px;
     color: rgb(46, 39, 120);
 }
+div.upcoming-concerts

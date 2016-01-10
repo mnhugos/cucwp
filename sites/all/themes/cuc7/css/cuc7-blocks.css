@@ -162,3 +162,19 @@ ul.sermon li.topic img {
     padding: 2em;
     overflow: hidden;
 }
+
+/* Tweaks for Auction 2015.  These can be modified or deleted for subsequent years */
+div#block-views-auction-block-6 {
+    float: left;
+    margin-right: 3em;
+}
+div#block-views-auction-block-2 {
+    margin-top: 5em;
+}
+div#block-views-auction-block-3 {
+    clear: both;
+}
+#block-views-newsletters-block-2 .views-field-field-sunday-date {
+    float: left;
+    margin-right: 1em;
+}
