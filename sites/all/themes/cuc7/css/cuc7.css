@@ -131,7 +131,9 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
 {
     top: 25px;
 }
-.block ul.menu li a:hover {
+.block ul.menu li a:hover,
+.block ul.menu li a:active,
+.block ul.menu li .active {
     color: #EC985A;
 }
 /*#navigation ul, #navigation ul.sf-menu { width: inherit;}*/

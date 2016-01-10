@@ -162,7 +162,9 @@ ul.sermon li.topic img {
     padding: 2em;
     overflow: hidden;
 }
-
+.block-upcoming-sermons {
+    margin-bottom: 1em;
+}
 /* Tweaks for Auction 2015.  These can be modified or deleted for subsequent years */
 div#block-views-auction-block-6 {
     float: left;
