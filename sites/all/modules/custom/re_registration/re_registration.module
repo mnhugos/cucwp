@@ -29,7 +29,7 @@ function re_registration_theme_registry_alter(&$theme_registry) {
 }
 // ...And here is the overridden function.  Copied it from "webform.admin.inc" and modified
 // TODO  For now, I've hardcoded the form titles to be searched, but this should be folded into the admin form instead to make it more dynamic.
-function re_registration_webform_admin_content($variables) {
+function re_registration_webform_admin_content( $variables) {
   $nodes = $variables['nodes'];
   $header = array(
     t('Title'),
@@ -42,7 +42,7 @@ function re_registration_webform_admin_content($variables) {
   foreach ($nodes as $node) {
     // if current form is RE Registration (named differently depending on installation, unfortunately) and current role
     // is 'dre' then it's okay to print this line item.  Otherwise, it's not okay.
-    $re_registration_form = in_array( $node->title, array('Religious Education Registration', 'RE Registration'));
+    $re_registration_form = in_array( $node->title, array('Religious Education Registration', 'RE Registration', 'Religious Education Registration -- OLD'));
     $is_dre = in_array( 'dre', $user->roles);
     if ( !$re_registration_form && $is_dre) {
       // print only the re registration form if the user is DRE
