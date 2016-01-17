@@ -38,17 +38,16 @@ fieldset#webform-component-parentguardian-1,
 fieldset#webform-component-parentguardian-2 {
     float:left;
     width: 315px;
-    height: 390px;
+    height: 35em;
     margin-bottom: 20px;
 }
 
 fieldset#webform-component-parentguardian-1 {
-    margin-right: 12px;
+    margin-right: 5em;
 }
 
 fieldset#webform-component-parentguardian-2 {
     padding-right: 0px;
-    margin-left: 24px;
 }
 
 /*#webform-client-form-588 #webform-component-parentguardian-1 legend,*/
@@ -195,7 +194,7 @@ fieldset#webform-component-childchildren-information legend
 }
 fieldset.re-child [id$='--first-name-child-1'],  /* element id ends in... */
 fieldset.re-child [id$='--last-name-child-1'] {
-    width:185px;
+    width:225px;
     float: left;
 }
 fieldset.re-child [id$='--date-of-birth-1'] {
