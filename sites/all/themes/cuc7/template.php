@@ -20,12 +20,12 @@ function cuc7_preprocess_page( &$variables) {
         drupal_add_js( path_to_theme() . '/webform/js/pledge_form.js');
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-pledge.css');
       }
-      if ($variables['node']->nid == '437') {  // RE Registration Form
+      if ($variables['node']->nid == '437') {  // RE Registration Form on local
         drupal_add_library('system','ui.tabs');
         drupal_add_js( path_to_theme() . '/webform/js/re_registration_form.js');
-        drupal_add_css( path_to_theme() . '/css/cuc7-webform-re-registration.css');
+        drupal_add_css( path_to_theme() . '/css/cuc7-webform-re-registration-437.css');
       }
-      if ($variables['node']->nid == '588') {  // RE Registration Form
+      if ($variables['node']->nid == '588') {  // RE Registration Form on prod
         drupal_add_library('system','ui.tabs');
         drupal_add_js( path_to_theme() . '/webform/js/re_registration_form.js');
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-re-registration-588.css');
@@ -33,6 +33,10 @@ function cuc7_preprocess_page( &$variables) {
       if ($variables['node']->title == 'Journey Group Signup') {  // Journey Group Signup Form
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-journey-group-signup.css');
 
+      }
+      if ($variables['node']->title == 'Opportunities to Serve') {
+        drupal_add_css( path_to_theme() . '/css/cuc7-webform-ots.css');
+        drupal_add_js( path_to_theme() . '/webform/js/ots_form.js');
       }
     }
     if ($_SERVER['REQUEST_URI'] == '/journey-groups') {
