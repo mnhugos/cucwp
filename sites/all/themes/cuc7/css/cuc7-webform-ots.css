@@ -1,0 +1,19 @@
+div#webform-component-name,
+div#webform-component-email
+{
+    float: left;
+    margin-right: 1em;
+}
+div#webform-component-instructions {
+    clear: both;
+}
+
+.form-item.form-type-checkbox.form-item-submitted-religious-education-re-religious-education-re-items-5a,
+.form-item.form-type-checkbox.form-item-submitted-religious-education-re-religious-education-re-items-5b,
+.form-item.form-type-checkbox.form-item-submitted-religious-education-re-religious-education-re-items-5c,
+.form-item.form-type-checkbox.form-item-submitted-religious-education-re-religious-education-re-items-5d,
+.form-item.form-type-checkbox.form-item-submitted-religious-education-re-religious-education-re-items-5e,
+.form-item.form-type-checkbox.form-item-submitted-religious-education-re-religious-education-re-items-5f
+{
+    margin-left: 2em;
+}
