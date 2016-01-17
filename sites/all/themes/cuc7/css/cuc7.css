@@ -233,7 +233,7 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
     float: left;
     top: 1em;
     margin-bottom: 1em;
-    padding-right: 1em;
+    /*padding-right: 1em;*/
 }
 .front #title {
     float: right;
@@ -243,6 +243,9 @@ height: 2px;  /* override def in superfish.css because of wrong offset when wind
     margin-top: 3em;
 }
 /*---- Miscellaneous -----*/
+.not-front.not-logged-in .tabs {
+    display: none;
+}
 .left-pic-border {
 float: left;
 /*border: medium solid #5294C1;*/
