@@ -17,7 +17,7 @@ $nolabel = array_map('trim', explode(',', $block->hide_labels));
 ?>
 
 <div>
-  <strong>​For additional events and details, read our&nbsp;<a href="newsletters">MONTHLY NEWSLETTER</a></strong>
+  <strong>​For additional events and details, read our&nbsp;<a href="newsletters">NEWSLETTER</a>, or view the <a href="calendar">CALENDAR</a></strong>
 </div>
 <hr />
 <div class="agenda-block">
