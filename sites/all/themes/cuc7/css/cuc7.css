@@ -431,4 +431,9 @@ ul#new-noteworthy {
     font-size: 15px;
     color: rgb(46, 39, 120);
 }
-div.upcoming-concerts
+div#cboxLoadedContent > div {
+    padding: 0 1em;
+}
+div#cboxLoadedContent .meta.submitted {
+    display: none;
+}
