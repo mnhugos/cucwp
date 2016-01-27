@@ -1,0 +1,40 @@
+div.jp-audio div.jp-type-playlist div.jp-interface {
+    height: 43px;
+}
+div#jplayer-node-569-field-file-1453933085_interface {
+    height: 40px;
+}
+div.jp-audio div.jp-type-playlist a.jp-play,
+div.jp-audio div.jp-type-playlist a.jp-pause {
+    top: 0;
+}
+div.jp-audio div.jp-type-playlist a.jp-stop {
+    top: 6px;
+}
+div.jp-audio div.jp-type-playlist a.jp-mute,
+div.jp-audio div.jp-type-playlist a.jp-unmute {
+    top: 13px ;
+}
+div.jp-audio div.jp-type-playlist div.jp-progress {
+    top: 13px;
+}
+div.jp-audio div.jp-type-playlist div.jp-volume-bar{
+    top: 18px;
+}
+div.jp-playlist {
+    display: none;
+}
+div.jp-audio div.jp-type-playlist div.jp-current-time,
+div.jp-audio div.jp-type-playlist div.jp-duration {
+    top: 25px;
+}
+.view-sermon-audios .views-row {
+    height: 4em;
+
+}
+.view-sermon-audios .views-field.views-field-field-file {
+    /*float: right;*/
+}
+td.views-field.views-field-title {
+    color: brown;
+}
