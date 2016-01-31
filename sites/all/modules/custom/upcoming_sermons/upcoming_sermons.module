@@ -88,7 +88,7 @@ function upcoming_sermons_block_render( $delta) {
     }
   }
   $html .= '<div style="clear:both;"><h3>Past Sermons</h3>';
-  $html .= '  <ul><li>You can visit the <a href="sermons">audio sermons page</a> to listen to past sermons</li></ul>';
+  $html .= '  <ul><li>You can visit the <a href="sermon-audios">audio sermons page</a> to listen to past sermons</li></ul>';
   $html .= '</div>';
   return $html;
 }
