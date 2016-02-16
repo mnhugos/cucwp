@@ -17,7 +17,7 @@
                         tabHTML += $(this).children("legend").text();
                         tabHTML += "</a></li>";
                     });
-                $('<ul></ul>').html(tabHTML).insertBefore($('#webform-component-childchildren-information-child-1'));
+                $('<ul></ul>').html(tabHTML).insertBefore($('#webform-component-childchildren-information--child-1'));
 
                 // Now turn the list into tabs
                 $("#webform-component-childchildren-information").tabs( {selected:0});
