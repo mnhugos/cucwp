@@ -32,7 +32,9 @@ function cuc7_preprocess_page( &$variables) {
       }
       if ($variables['node']->title == 'Journey Group Signup') {  // Journey Group Signup Form
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-journey-group-signup.css');
-
+      }
+      if ($variables['node']->title == 'Concert Series') {  // This is for the embedded Brown Paper Tickets widget
+        drupal_add_css( 'http://www.brownpapertickets.com/widget_v651.css', array('type' => 'external'));
       }
       if ($variables['node']->title == 'Opportunities to Serve') {
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-ots.css');
