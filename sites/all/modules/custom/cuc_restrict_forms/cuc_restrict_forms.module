@@ -1,6 +1,6 @@
 <?php
 
-function re_registration_init() {
+function cuc_restrict_forms_init() {
   // We only want to include the JS for IE and not browsers
   // capable of doing everything in css.  We have to put all the JS
   // in drupal_set_html_head so they get called in the right order. ;-(
@@ -10,8 +10,7 @@ function re_registration_init() {
       <script type="text/javascript" src="/sites/all/modules/contrib/jquery_update/replace/jquery.js?g"></script>
       <script type="text/javascript" src="/sites/all/libraries/jquery.ui/ui/minified/jquery.ui.all.min.js?g"></script>
       <script type="text/javascript" src="/sites/all/libraries/jquery.ui/ui/minified/ui.core.min.js?g"></script>
-      <script type="text/javascript" src="/sites/all/libraries/jquery.ui/ui/minified/ui.tabs.min.js?g"></script>
-      <script type="text/javascript" src="/sites/all/themes/cuc/webform/js/re_registration_form.js?g">  <![endif]-->
+      <script type="text/javascript" src="/sites/all/libraries/jquery.ui/ui/minified/ui.tabs.min.js?g"></script>  <![endif]-->
 EOL;
     $data = array(
         '#type'   => 'markup',
@@ -20,16 +19,16 @@ EOL;
     drupal_add_html_head( $data, 'js_ie');
 }
 
-// Override rendering function for Webform Admin,called "webform_admin_content" in "webform.admin.inc"
+// Override rendering function for Webform Admin, called "webform_admin_content" in "webform.admin.inc"
 // In order to do this, we need to alter the theme registry -- no way to automatically override it
-function re_registration_theme_registry_alter(&$theme_registry) {
-	  $path = drupal_get_path('module', 're_registration');           // get module path
+function cuc_restrict_forms_theme_registry_alter( &$theme_registry) {
+	  $path = drupal_get_path('module', 'cuc_restrict_forms');           // get module path
 	  $theme_registry['webform_admin_content']['theme path'] = $path; // register module location so drupal knows where to look for override function
-	  $theme_registry['webform_admin_content']['function'] = 're_registration_webform_admin_content'; // register the override function name
+	  $theme_registry['webform_admin_content']['function'] = 'cuc_restrict_forms_webform_admin_content'; // register the override function name
 }
 // ...And here is the overridden function.  Copied it from "webform.admin.inc" and modified
 // TODO  For now, I've hardcoded the form titles to be searched, but this should be folded into the admin form instead to make it more dynamic.
-function re_registration_webform_admin_content( $variables) {
+function cuc_restrict_forms_webform_admin_content( $variables) {
   $nodes = $variables['nodes'];
   $header = array(
     t('Title'),
@@ -44,9 +43,14 @@ function re_registration_webform_admin_content( $variables) {
     // is 'dre' then it's okay to print this line item.  Otherwise, it's not okay.
     $re_registration_form = in_array( $node->title, array('Religious Education Registration', 'RE Registration', 'Religious Education Registration -- OLD'));
     $is_dre = in_array( 'dre', $user->roles);
-    if ( !$re_registration_form && $is_dre) {
-      // print only the re registration form if the user is DRE
-      // so if NOT re registration form and it's a DRE, do nothing
+    // if current form is Annual Pledge and current role is 'pledgeadmin' then it's okay to print this line item.  Otherwise, not.
+    $annual_pledge_form = in_array( $node->title, array( 'Annual Pledge'));
+    $is_pledge_admin = in_array( 'pledge-admin', $user->roles);
+
+    if ( (!$re_registration_form && $is_dre) ||
+         (!$annual_pledge_form && $is_pledge_admin)) {
+      // if NOT the re registration form and IS a DRE role, do nothing
+      // if NOT the pledge form and IS a PLEDGE-ADMIN role, do nothing
     }
     else {
       $rows[] = array(
