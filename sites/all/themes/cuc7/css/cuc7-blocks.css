@@ -118,6 +118,9 @@ ul.sermon li.topic img {
     font-weight: bold;
     font-size: larger;
 }
+#event-body #bpt_eventbody {
+    width: 48%; !important;
+}
 /*--------------- Auction -----------------------*/
 
 .auction-slogan {
@@ -179,4 +182,10 @@ div#block-views-auction-block-3 {
 #block-views-newsletters-block-2 .views-field-field-sunday-date {
     float: left;
     margin-right: 1em;
+}
+ul#new-noteworthy {
+    line-height: 1.7em;
+}
+#new-noteworthy #event {
+    line-height: 1em;
 }

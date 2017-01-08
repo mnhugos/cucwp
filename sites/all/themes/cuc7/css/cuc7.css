@@ -437,3 +437,10 @@ div#cboxLoadedContent > div {
 div#cboxLoadedContent .meta.submitted {
     display: none;
 }
+#tkt-wrapper {
+    text-align:center;
+}
+#bpt_eventbody {
+    width: 70%;
+    margin: 0 auto;
+}
