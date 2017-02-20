@@ -44,6 +44,7 @@ function cuc_restrict_forms_webform_admin_content( $variables) {
     $re_registration_form = in_array( $node->title, array('Religious Education Registration', 'RE Registration', 'Religious Education Registration -- OLD'));
     $annual_pledge_form = in_array( $node->title, array( 'Annual Pledge'));
     $is_dre = in_array( 'dre', $user->roles);
+    $is_admin = in_array( 'administrator', $user->roles);
     $is_superadmin = in_array( 'superadmin', $user->roles);
     $is_pledge_admin = in_array( 'pledge-admin', $user->roles);
     $is_content_admin = in_array( 'content editor', $user->roles);
@@ -51,12 +52,13 @@ function cuc_restrict_forms_webform_admin_content( $variables) {
     // Print the form if:
     //    Form is RE Registration AND user is DRE role (DRE only sees RE Registration forms)
     //    Form is Pledge AND user is Pledge Admin role  (Pledge Admin only sees Pledge form)
-    //    Form is NOT Pledge AND user is Content Editor (Content Editors see all forms except Pledge Form)
+    //    Form is NOT Pledge AND user is Content Editor or Administrator (Content Editors and Administrators see all forms except Pledge Form)
     //    User is superadmin  (Superadmin sees all forms)
     $print_form = 0;
     if ( ($re_registration_form && $is_dre) ||
          ($annual_pledge_form && $is_pledge_admin) ||
          (!$annual_pledge_form && $is_content_admin) ||
+         (!$annual_pledge_form && $is_admin) ||
          ($is_superadmin) ) {
       $print_form = 1;
     }
