@@ -42,18 +42,26 @@ function cuc_restrict_forms_webform_admin_content( $variables) {
     // if current form is RE Registration (named differently depending on installation, unfortunately) and current role
     // is 'dre' then it's okay to print this line item.  Otherwise, it's not okay.
     $re_registration_form = in_array( $node->title, array('Religious Education Registration', 'RE Registration', 'Religious Education Registration -- OLD'));
-    $is_dre = in_array( 'dre', $user->roles);
-    // if current form is Annual Pledge and current role is 'pledgeadmin' then it's okay to print this line item.  Otherwise, not.
     $annual_pledge_form = in_array( $node->title, array( 'Annual Pledge'));
+    $is_dre = in_array( 'dre', $user->roles);
+    $is_superadmin = in_array( 'superadmin', $user->roles);
     $is_pledge_admin = in_array( 'pledge-admin', $user->roles);
+    $is_content_admin = in_array( 'content editor', $user->roles);
 
-    if ( (!$re_registration_form && $is_dre) ||
-         (!$annual_pledge_form && $is_pledge_admin)) {
-      // if NOT the re registration form and IS a DRE role, do nothing
-      // if NOT the pledge form and IS a PLEDGE-ADMIN role, do nothing
+    // Print the form if:
+    //    Form is RE Registration AND user is DRE role (DRE only sees RE Registration forms)
+    //    Form is Pledge AND user is Pledge Admin role  (Pledge Admin only sees Pledge form)
+    //    Form is NOT Pledge AND user is Content Editor (Content Editors see all forms except Pledge Form)
+    //    User is superadmin  (Superadmin sees all forms)
+    $print_form = 0;
+    if ( ($re_registration_form && $is_dre) ||
+         ($annual_pledge_form && $is_pledge_admin) ||
+         (!$annual_pledge_form && $is_content_admin) ||
+         ($is_superadmin) ) {
+      $print_form = 1;
     }
-    else {
-      $rows[] = array(
+    if ($print_form) {
+    $rows[] = array(
         l($node->title, 'node/' . $node->nid),
         l(t('Submissions'), 'node/' . $node->nid . '/webform-results'),
         l(t('Analysis'), 'node/' . $node->nid . '/webform-results/analysis'),
