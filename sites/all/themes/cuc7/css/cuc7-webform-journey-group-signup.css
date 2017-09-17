@@ -1,3 +1,11 @@
 #webform-component-first-group-choice label {
     margin-right: 2.2em;
 }
+
+.form-item label {
+    font-size: 1em !important;
+}
+
+input.form-text, textarea.form-textarea, select.form-select {
+    font-size: 16px;
+}

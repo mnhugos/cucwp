@@ -30,7 +30,7 @@ function cuc7_preprocess_page( &$variables) {
         drupal_add_js( path_to_theme() . '/webform/js/re_registration_form.js');
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-re-registration-588.css');
       }
-      if ($variables['node']->title == 'Journey Group Signup') {  // Journey Group Signup Form
+      if ($variables['node']->title == 'Journey Groups') {  // Journey Group Signup Form
         drupal_add_css( path_to_theme() . '/css/cuc7-webform-journey-group-signup.css');
       }
       if ($variables['node']->title == 'Concert Series') {  // This is for the embedded Brown Paper Tickets widget

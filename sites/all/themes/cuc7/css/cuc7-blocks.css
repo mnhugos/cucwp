@@ -189,3 +189,19 @@ ul#new-noteworthy {
 #new-noteworthy #event {
     line-height: 1em;
 }
+
+/*--------------- Social Justice Team Signup -----------------------*/
+
+#justice-group-signup .form-item label {
+    font-size: 1em !important;
+}
+
+#justice-group-signup input.form-text,
+#justice-group-signup textarea.form-textarea,
+#justice-group-signup select.form-select {
+    font-size: 16px;
+}
+
+#justice-group-signup .form-actions {
+    text-align: center;
+}
