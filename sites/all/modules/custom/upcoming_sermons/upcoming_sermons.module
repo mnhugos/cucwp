@@ -17,9 +17,9 @@ function upcoming_sermons_block_info()
 //  $blocks = array();
   $blocks = array(
     'upcoming_sermons' => array(
-      'info' => t('Upcoming Sermons')),
+      'info' => t('Upcoming Sermons')),   // this is the fall-winter-spring block.  Move "Upcoming Sermons" into the content area in the admin block panel in order to use it.
     'upcoming_sermons_summer' => array(
-      'info' => t('Upcoming Sermons for Summer')
+      'info' => t('Upcoming Sermons for Summer')  // this is the summer block.  Move "Upcoming Sermons for Summer" block into the content area in the admin block panel in order to use it.
     )
   );
 
@@ -33,9 +33,15 @@ function upcoming_sermons_block_view( $delta = '')
 {
   $block = array();
   switch ($delta) {
-    case 'upcoming_sermons':
+    case 'upcoming_sermons':    // this is the fall-winter-spring block.  Move "Upcoming Sermons" into the content area in the admin block panel in order to use it.
       $block['subject'] = '';
       $block{'content'} = upcoming_sermons_block_render( $delta);
+      return $block;
+      break;
+    case 'upcoming_sermons_summer':   // this is the summer block.  Move "Upcoming Sermons for Summer" block into the content area in the admin block panel in order to use it.
+      $block['subject'] = '';
+      $block{'content'} = '<p><span><strong>Summer Service Hours</strong>: &nbsp;</span><strong>10:15 – 11:15 AM&nbsp;</strong><span>&nbsp;Followed by a time for conversation</span></p>';
+      $block{'content'} .= upcoming_sermons_block_render( $delta);
       return $block;
       break;
   }
