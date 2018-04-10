@@ -441,6 +441,15 @@ div#cboxLoadedContent .meta.submitted {
     text-align:center;
 }
 #bpt_eventbody {
-    width: 70%;
+    /*width: 100%;*/
     margin: 0 auto;
+}
+#bpt_eventbody td {
+    padding: 0px 2px;
+}
+td.bpt_widget_box_tab {
+    text-align: center;
+}
+#bpt_eventbody table {
+    margin:0 0 10px;
 }
