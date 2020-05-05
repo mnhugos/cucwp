@@ -5,6 +5,7 @@
  * Date: 1/30/14
  * Time: 3:03 PM
  */
+
   function cuc7_page_alter($page) {
     // this was added in order to verify site for Google G-suite
     $meta_description = array(
