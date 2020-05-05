@@ -5,9 +5,19 @@
  * Date: 1/30/14
  * Time: 3:03 PM
  */
+  function cuc7_page_alter($page) {
+    $meta_description = array(
+      '#type' => 'html_tag',
+      '#tag' => 'meta',
+      '#attributes' => array(
+      'name' => 'google-site-verification',
+      'content' => "DMf-krkiFqwMLMupwq5xcBYpuTWoY81OkRaQ5eHh1rw",
+      )
+    );
+    drupal_add_html_head( $meta_description, 'meta_description');
+  }
 
-
-function cuc7_preprocess_page( &$variables) {
+  function cuc7_preprocess_page( &$variables) {
     // Allow Drupal to render ALL child items for all parent elements in the main menu
     // The default for Drupal is that it renders child elements only for the current page's menu item */
     $main_menu_tree = menu_tree_all_data('main-menu');
