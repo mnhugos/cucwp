@@ -453,3 +453,7 @@ td.bpt_widget_box_tab {
 #bpt_eventbody table {
     margin:0 0 10px;
 }
+#edit-actions input {
+    margin-top: 2em;
+    display: block;
+}
