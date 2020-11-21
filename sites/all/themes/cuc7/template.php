@@ -21,7 +21,7 @@
 
   function cuc7_preprocess_page( &$variables) {
     // Allow Drupal to render ALL child items for all parent elements in the main menu
-    // The default for Drupal is that it renders child elements only for the current page's menu item */
+    // The default for Drupal is that it- renders child elements only for the current page's menu item */
     $main_menu_tree = menu_tree_all_data('main-menu');
     $variables['menu_expanded'] = menu_tree_output($main_menu_tree);
 
