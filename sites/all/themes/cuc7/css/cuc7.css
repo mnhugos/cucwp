@@ -302,6 +302,9 @@ ul li,
 ul li ul li {
     list-style-type: none;
 }
+ul.disc li {
+    list-style-type: disc;
+}
 ul.points li{
     list-style-type: inherit
 }
