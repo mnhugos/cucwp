@@ -473,3 +473,23 @@ td.bpt_widget_box_tab {
     margin-top: 2em;
     display: block;
 }
+.btn{
+    color: #2883de;
+    border: 1px solid #2883de;
+    padding: 0.733333333333333rem 1.33333333333333rem !important;
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+    font-weight: 700;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 30rem;
+    background: #fff;
+}
+
+.btn:hover {
+    background: #2883de!important;
+    color: #fff !important;
+    cursor: pointer;
+    text-decoration: none !important;
+}
