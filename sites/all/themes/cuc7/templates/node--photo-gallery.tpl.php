@@ -101,9 +101,9 @@
       hide($content['comments']);
       hide($content['links']);
     ?>
-    <p>
-      <a href="/cucs-photo-galleries">Return to Gallery Listing</a>
-    </p>
+<!--    <p>-->
+<!--      <a href="/cucs-photo-galleries">Return to Gallery Listing</a>-->
+<!--    </p>-->
     <?php print render($content);?>
   </div>
 
